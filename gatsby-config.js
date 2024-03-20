@@ -4,7 +4,7 @@
 module.exports = {
   pathPrefix:"/notes",
   siteMetadata: {
-    title: `Interview Notebook by Subject`,
+    title: `Notes`,
     siteUrl: `https://www.nikhilrstg18.github.io/notes`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", {

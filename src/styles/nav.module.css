@@ -1,0 +1,25 @@
+.navBar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: .5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  align-items: center;
+
+}
+.brand{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: center;
+}
+.brand h1{
+    margin: 0;
+}
+.nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: right;
+  align-items: center;
+}
+

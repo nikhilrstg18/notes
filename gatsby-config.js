@@ -2,9 +2,10 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix:"/notes",
   siteMetadata: {
     title: `Interview Notebook by Subject`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.nikhilrstg18.github.io/notes`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',

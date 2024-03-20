@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy:gh":"gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
     "gatsby": "^5.13.3",
@@ -24,5 +25,8 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }

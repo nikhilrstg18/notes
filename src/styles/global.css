@@ -4,3 +4,18 @@ html, body{
     padding:0;
     font-family:'Roboto', sans-serif;
 }
+.site-content{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+}
+.site-content Aside{
+    min-width: 22%;
+    background-color: linear-gradient(0deg, transparent, #f5f5f5 80%) no-repeat;;
+    padding: .5rem;
+}
+.site-content main{
+    width: 100%;
+    padding: .5rem;
+    background-color: linear-gradient(0deg, transparent, white 80%) no-repeat;;
+}

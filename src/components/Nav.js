@@ -38,7 +38,9 @@ export default function Nav() {
         <h1>Bread Crumbs ...</h1>
       </div>
       <div className={styles.nav}>
-        <div>Search ...</div>
+        <div>
+          <Link to="/books">Books</Link>
+        </div>
         <div> | {title} | </div>
         <div>Social Icons ...</div>
       </div>

@@ -22,4 +22,11 @@
   justify-content: right;
   align-items: center;
 }
+.nav a{
+    text-decoration: none;
+    padding: .25rem .5rem;
+}
+.nav a:hover{
+    border-bottom: 2px solid #333;
+}
 

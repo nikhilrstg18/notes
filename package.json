@@ -1,8 +1,8 @@
 {
-  "name": "interview-notebook-by-subject",
+  "name": "iq-notes",
   "version": "1.0.0",
   "private": true,
-  "description": "interview-notebook-by-subject",
+  "description": "iq-notes",
   "author": "Nikhil",
   "keywords": [
     "gatsby"
@@ -22,7 +22,12 @@
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-remark-gifs": "^1.2.0",
+    "gatsby-remark-images": "^7.13.1",
+    "gatsby-remark-markmap": "^0.5.0",
+    "gatsby-remark-prismjs": "^7.13.1",
     "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

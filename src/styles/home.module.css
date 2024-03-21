@@ -1,0 +1,30 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 3rem;
+    padding: .25rem;
+}
+.header{
+ margin-top: 2rem;
+ padding: .5rem 1rem;
+ padding-left: 4rem;
+}
+.header h1{
+    font-size: 3rem;
+}
+.header h2{
+    font-size: 1.5rem;
+}
+.header h2 a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: lightcoral;
+}
+.header h2 a:hover{
+    border-bottom: 2px solid lightcoral;
+}
+.banner{
+    width:50%;
+    margin: 0 auto;
+    /* filter: blur(0.7rem); */
+}

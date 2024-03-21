@@ -5,7 +5,11 @@ module.exports = {
   pathPrefix: "/notes",
   siteMetadata: {
     title: `Notes`,
+    welcome: `Welcome Learner`,
+    description: "Subject by experience",
     siteUrl: `https://www.nikhilrstg18.github.io/notes`,
+    author: `Nikhil Rustagi`,
+    copyright: "© 2024",
   },
   plugins: [
     "gatsby-plugin-image",

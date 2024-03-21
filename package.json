@@ -16,6 +16,7 @@
     "deploy:gh": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.6.0",
     "gatsby": "^5.13.3",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-image": "^3.13.1",
@@ -23,6 +24,7 @@
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-remark-gifs": "^1.2.0",
+    "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-remark-images": "^7.13.1",
     "gatsby-remark-markmap": "^0.5.0",
     "gatsby-remark-prismjs": "^7.13.1",

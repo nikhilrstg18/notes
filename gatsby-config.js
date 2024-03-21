@@ -60,6 +60,14 @@ module.exports = {
         plugins: [
           "gatsby-remark-markmap",
           "gatsby-remark-gifs",
+          {
+            resolve:"gatsby-remark-highlight-code",
+            options:{
+              lineNumbers:true,
+              terminal:'carbon',
+              theme:'dracula'
+            }
+          },
           `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
@@ -69,7 +77,7 @@ module.exports = {
               showCaptions: true,
               quality: 50,
             },
-          }
+          },
         ],
       },
     },

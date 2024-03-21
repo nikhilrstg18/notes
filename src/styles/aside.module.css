@@ -1,0 +1,23 @@
+.section {
+  color: lightcoral;
+}
+.section ul li {
+  text-overflow: ellipsis;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+.section ul li a {
+  text-decoration: none;
+  color: lightcoral;
+}
+.section ul li:hover {
+  border-bottom: 2px solid lightcoral;
+}
+.home{
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+.home a{
+    text-decoration: none;
+}

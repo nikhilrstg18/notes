@@ -6,7 +6,10 @@ prev: "../"
 next: "dotnet/fundamentals/c/beginner/grade_book/syntax"
 level: ""
 date: "Wed Mar 06 2024 22:16:35 GMT+0530 (India Standard Time)"
+featureImage: "../../../../../../src/images/dotnet/c/beginner/gradebook/feature.png"
 ---
+
+![Project - Gradebook](../../../../../../src/images/dotnet/c/beginner/gradebook/feature.png)
 
 ## Introduction
 

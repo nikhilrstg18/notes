@@ -25,7 +25,7 @@ module.exports = {
       options: {
         defaults: {
           placeholder: "blurred",
-          quality: 50,
+          quality: 70,
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
           tracedSVGOptions: {},
@@ -61,12 +61,12 @@ module.exports = {
           "gatsby-remark-markmap",
           "gatsby-remark-gifs",
           {
-            resolve:"gatsby-remark-highlight-code",
-            options:{
-              lineNumbers:true,
-              terminal:'carbon',
-              theme:'dracula'
-            }
+            resolve: "gatsby-remark-highlight-code",
+            options: {
+              lineNumbers: true,
+              terminal: "carbon",
+              theme: "dracula",
+            },
           },
           `gatsby-remark-prismjs`,
           {
@@ -75,7 +75,7 @@ module.exports = {
               maxWidth: 600,
               withWebp: true,
               showCaptions: true,
-              quality: 50,
+              quality: 70,
             },
           },
         ],

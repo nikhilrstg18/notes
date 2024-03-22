@@ -10,7 +10,7 @@
   text-decoration: none;
   color: lightcoral;
 }
-.section ul li:hover {
+.section ul li a:hover {
   border-bottom: 2px solid lightcoral;
 }
 .home{

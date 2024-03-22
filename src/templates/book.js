@@ -6,8 +6,9 @@ import * as styles from "./../styles/book.module.css";
 export default function Book({ data }) {
   const { html, frontmatter, tableOfContents, timeToRead } =
     data.markdownRemark;
-  const { title, stack, next, prev, slug } = frontmatter;
+  const { title, stack, next, prev, featureImg } = frontmatter;
   const sideMenu = customSort(data?.allDirectory?.edges?.map((x) => x.node));
+
   function customSort(words) {
     const order = [
       "fundamentals",

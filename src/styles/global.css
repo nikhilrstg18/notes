@@ -78,3 +78,29 @@ figcaption{
     font-size: .8rem;
     color: grey;
 }
+a{
+    transition: all 0.3s ease;
+}
+
+table{
+    margin: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+table caption{
+    color: lightcoral;
+}
+table thead{
+    color: #333;
+    background: linear-gradient(90deg, rgba(230, 230, 230) 0%, rgba(9,9,121,0) 50%, rgba(230, 230, 230) 100%);
+    text-align: left;
+}
+table thead tr th{
+    padding:.4rem
+}
+table tbody tr:nth-child(2n){
+    background: rgb(230, 230, 230);
+}
+table tbody tr td{
+    padding:.4rem
+}

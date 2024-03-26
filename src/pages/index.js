@@ -4,11 +4,9 @@ import * as styles from "../styles/home.module.css";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const IndexPage = ({data}) => {
-  const {description,
-    title,
-    welcome} = data.site.siteMetadata;
-  const image = getImage(data.file.childImageSharp)
+const IndexPage = ({ data }) => {
+  const { description, title, welcome } = data.site.siteMetadata;
+  const image = getImage(data.file.childImageSharp);
   return (
     <Site>
       <div className={styles.container}>
@@ -16,7 +14,9 @@ const IndexPage = ({data}) => {
           <h1>{welcome}</h1>
           <hr />
           <h2>
-          <Link to="books">{title} {description} 👉 📚</Link>
+            <Link to="books">
+              {title} {description} 👉 📚
+            </Link>
           </h2>
         </div>
         <GatsbyImage

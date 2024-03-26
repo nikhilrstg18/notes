@@ -1,55 +1,57 @@
-.container{
+.container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: stretch; 
+  justify-content: stretch;
 }
 .book {
-  background : #fff;
+  background: #fff;
   height: 100%;
   overflow: auto;
-  padding: .75rem;
+  padding: 0.75rem;
   min-width: 80%;
   max-width: 80%;
   width: 80%;
-
 }
-.book  p{
+.book p {
   text-align: justify;
 }
-.book h2,h3, h4, h5,h6 {
+.book h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 2rem 0 1rem 0;
   color: grey;
   background: linear-gradient(45deg, #1dd6c36e 1%, transparent 80%);
 }
-.book p:has(img){
+.book p:has(img) {
   display: block;
   text-align: center;
-} 
+}
 .book h1 {
   color: #333;
   text-align: center;
   display: block;
 }
 .book cite {
-    color: lightcoral;
-    text-align: center;
-    display: block;
-    margin-bottom: 2rem;
+  color: var(--secondary);
+  text-align: center;
+  display: block;
+  margin-bottom: 2rem;
 }
 .html {
   margin-top: 2rem;
 }
-.np{
+.np {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
   position: fixed;
   bottom: 1rem;
-
 }
-.np a{
-  padding: .5rem;
+.np a {
+  padding: 0.5rem;
   color: #3ce8d64a;
   text-decoration: none;
   background: #fff;
@@ -57,28 +59,28 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
-.np a:hover{
+.np a:hover {
   background: #282a36;
 }
-.footer{
+.footer {
   text-align: center;
   margin: 3rem 0 2rem 0;
 }
-.footer img{
-  width: 2%;
+.footer img {
+  width: 14px;
 }
-p img{
+p img {
   max-width: 600px;
 }
 
 .tableOfContent {
- position: fixed;
- top: 3.5rem;
- height: 89%;
- overflow: auto;
- direction: rtl;
+  position: fixed;
+  top: 3.5rem;
+  height: 89%;
+  overflow: auto;
+  direction: rtl;
 }
-.tableOfContent h4{
+.tableOfContent h4 {
   background: unset;
   direction: ltr;
 }
@@ -92,14 +94,14 @@ p img{
   border: none;
 }
 .tableOfContent ul li {
-  padding: .1rem 0;
+  padding: 0.1rem 0;
   font-style: italic;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
-.tableOfContent ul li p{
-  margin: .25rem 0;
+.tableOfContent ul li p {
+  margin: 0.25rem 0;
 }
 .tableOfContent ul li a {
   text-decoration: none;
-  color: lightcoral;
+  color: var(--secondary);
 }

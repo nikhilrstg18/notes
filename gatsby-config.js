@@ -2,6 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  trailingSlash:"never",
   pathPrefix: "/notes",
   siteMetadata: {
     title: `Notes`,
@@ -17,7 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/logo_192.png",
       },
     },
     {

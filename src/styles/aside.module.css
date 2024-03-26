@@ -1,5 +1,5 @@
 .section {
-  color: lightcoral;
+  color: var(--secondary);
 }
 .section ul li {
   text-overflow: ellipsis;
@@ -8,16 +8,16 @@
 }
 .section ul li a {
   text-decoration: none;
-  color: lightcoral;
+  color: var(--secondary);
 }
 .section ul li a:hover {
-  border-bottom: 2px solid lightcoral;
+  border-bottom: 2px solid var(--secondary);
 }
-.home{
-    font-size: 2rem;
-    text-align: center;
-    margin: 1rem 0;
+.home {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
 }
-.home a{
-    text-decoration: none;
+.home a {
+  text-decoration: none;
 }

@@ -71,7 +71,7 @@ export default function Book({ data }) {
             {stack} - <span>{timeToRead}</span>min&nbsp;read
           </cite>
           <div dangerouslySetInnerHTML={{ __html: html }} />
-          <div className={styles.np}>
+          {/* <div className={styles.np}>
             {prev ? (
               <Link to={prev} title="Prev">
                 👈
@@ -86,11 +86,11 @@ export default function Book({ data }) {
             ) : (
               ""
             )}
-          </div>
+          </div> */}
           <footer className={styles.footer}>
             Written by <em>Nikhil Rustagi</em> | ©{" "}
             {new Date(Date.now()).getFullYear()} built with{" "}
-            <img src="/icon.png" alt="gatsby" />
+            <img src="/gatsby.png" alt="gatsby" />
           </footer>
         </div>
         <div>

@@ -140,7 +140,6 @@ Note: Both value and reference types are further classified as `built-in` and `u
         <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/collections">Collections</a></td><td>System.Collections.Generic</td><td>The .NET runtime provides many collection types that store and manage groups of related objects</td></tr>
     </tbody>
 </table>
-</table>
 
 ## Problem of overflow
 
@@ -166,9 +165,9 @@ on line 8: we are increasing the number by 1 and trying to store 256 in variable
 on line 9: when we compile and run the app, we see 0 as output and this is what we call `overflowing` aka `exceeding the boundary of its underlying data type`
 
 In C#, by default we don't have overflow checking, which means we can modify the value at runtime and if we go beyond the boundary of its underlying data type, we will get overflow
-Overflowing is not desirable in app, and You want to stop overflowing by ysing `checked`.
+Overflowing is not desirable in app, and You want to stop overflowing by using `checked`.
 
-```csharp{8-9, 11}
+```csharp{7-12}
 using System;
 
 public class Program
@@ -237,7 +236,9 @@ same rule applied to second block with variable `b` and thrid block with variabl
 
 ## Type conversion
 
-### Implicit Type Conversion
+![Thumb rule](https://simplesnippets.tech/wp-content/uploads/2018/05/typecasting-in-java.jpg)
+
+### Implicit Conversion of built-in types
 
 e.g.
 
@@ -269,6 +270,7 @@ public class Program
 }
 ```
 At compile-time, compiler prefixes the first 3 Bytes with 0 and implicitly make it compatible, resulting in implicit conversion.
+
 Another Example
 
 ```csharp
@@ -284,8 +286,87 @@ public class Program
 	}
 }
 ```
-At compile-time, compiler find the incompatibility and results in `Compilation Error : Cannot implicitly convert type 'int' to 'byte'`.
+At compile-time, compiler finds out that theee is potential data-loss causing incompatibility and results in `Compilation Error : Cannot implicitly convert type 'int' to 'byte'`.
 
-### Explicit Type Conversion (Casting)
+### Explicit Conversion of built-in types (Casting)
 
-### Conversion between noncompatible types
+Referring to above example, if you want to and you are sure that there will be data loss for above convertion from int to byte, you can do that by casting or Explicit Type Conversion.
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int i = 1;
+		byte b = (byte)i;  // 1
+	}
+}
+```
+
+Another Example
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		float f = 1.0f;
+		int i = (int)f;  // compiler will warn for potential data loss
+	}
+}
+```
+
+### Non-compatible conversion of built-in types
+
+Example of non-compatible types
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		string s = "1";
+		int i = (int)s;  // won't compile
+	}
+}
+```
+In above example, string is incompatible with int
+
+`How can we convert non-compatible types ❓`
+
+by using [Convert](https://learn.microsoft.com/en-us/dotnet/api/system.convert) class or by using `Parse()` of target type.
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		string s = "1";
+		int i = Convert.ToInt32(s);
+		int j = int.Parse(s);
+	}
+}
+```
+another EXAMPLE
+
+```csharp
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		string s = "S";
+		int i = Convert.ToInt32(s); // System.FormatException: Input string was not in a correct format.
+		int j = int.Parse(s);       // System.FormatException: Input string was not in a correct format.
+	}
+}
+```

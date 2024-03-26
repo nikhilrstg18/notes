@@ -3,7 +3,7 @@ import React from "react";
 import * as styles from "../styles/nav.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export default function Nav({section}) {
+export default function Nav({ section }) {
   const data = useStaticQuery(graphql`
     query NavbarInfo {
       site {

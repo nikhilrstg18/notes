@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import * as styles from '../styles/aside.module.css';
+import * as styles from "../styles/aside.module.css";
 
 export default function Aside({ sideMenu }) {
   function titleCase(str) {
@@ -22,16 +22,18 @@ export default function Aside({ sideMenu }) {
   }
   return (
     <aside>
-      <p className={styles.home}><Link to="../">👈</Link></p>
+      <p className={styles.home}>
+        <Link to="../">👈</Link>
+      </p>
       {sideMenu?.map((sm) => (
         <div className={styles.section}>
-            <ul>
-              {sm.menu?.map((m) => (
-                <li>
-                  <Link to={m?.name}>{titleCase(m?.name)}</Link>
-                </li>
-              ))}
-            </ul>
+          <ul>
+            {sm.menu?.map((m) => (
+              <li>
+                <Link to={m?.name}>{titleCase(m?.name)}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </aside>

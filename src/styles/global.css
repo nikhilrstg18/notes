@@ -2,6 +2,13 @@
   box-sizing: border-box;
   scrollbar-width: thin;
 }
+:root {
+  --site-content: #f5f5f5;
+  --bq-bg: #f9f9f9;
+  --bq-q: #ccc;
+  --secondary: lightcoral;
+  --table-grey: #e6e6e6;
+}
 html,
 body {
   min-height: 100%;
@@ -19,7 +26,7 @@ body {
 .site-content Aside {
   min-width: 20%;
   max-width: 20%;
-  background: #f5f5f5;
+  background: var(--site-content);
   padding: 0.5rem;
   margin-top: 66px;
   position: fixed;
@@ -38,18 +45,17 @@ body {
 }
 
 blockquote {
-  background: #f9f9f9;
-  /* border-left: 10px solid #ccc; */
+  background: var(--bq-bg);
   margin: 0.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
   border-radius: 1rem;
 }
 blockquote p {
-  color: lightcoral;
+  color: var(--secondary);
 }
 blockquote p:before {
-  color: #ccc;
+  color: var(--bq-q);
   content: open-quote;
   font-size: 3em;
   line-height: 0.1em;
@@ -57,7 +63,7 @@ blockquote p:before {
   vertical-align: -0.4em;
 }
 blockquote p:after {
-  color: #ccc;
+  color: var(--bq-q);
   content: close-quote;
   font-size: 3em;
   line-height: 0.1em;
@@ -73,34 +79,39 @@ blockquote ul li:before {
 deckgo-highlight-code {
   margin: 0 1rem;
 }
-figcaption{
-    text-align: center;
-    font-size: .8rem;
-    color: grey;
+figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: grey;
 }
-a{
-    transition: all 0.3s ease;
+a {
+  transition: all 0.3s ease;
 }
 
-table{
-    margin: 1rem;
-    width: 100%;
-    border-collapse: collapse;
+table {
+  padding: 1.5rem 1rem;
+  width: 100%;
+  border-collapse: collapse;
 }
-table caption{
-    color: lightcoral;
+table caption {
+  color: var(--secondary);
 }
-table thead{
-    color: #333;
-    background: linear-gradient(90deg, rgba(230, 230, 230) 0%, rgba(9,9,121,0) 50%, rgba(230, 230, 230) 100%);
-    text-align: left;
+table thead {
+  color: #333;
+  background: linear-gradient(
+    90deg,
+    var(--table-grey) 0%,
+    rgba(9, 9, 121, 0) 50%,
+    var(--table-grey) 100%
+  );
+  text-align: left;
 }
-table thead tr th{
-    padding:.4rem
+table thead tr th {
+  padding: 0.4rem;
 }
-table tbody tr:nth-child(2n){
-    background: rgb(230, 230, 230);
+table tbody tr:nth-child(2n) {
+  background: var(--table-grey);
 }
-table tbody tr td{
-    padding:.4rem
+table tbody tr td {
+  padding: 0.4rem;
 }

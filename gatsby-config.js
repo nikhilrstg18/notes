@@ -98,5 +98,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: [{ regex: "^/books" }],
+        excludePaths: ["/"],
+        height: 3,
+        prependToBody: false,
+        color: `lightcoral`,
+        footerHeight: 500,
+        headerHeight: 0,
+      },
+    }
   ],
 };

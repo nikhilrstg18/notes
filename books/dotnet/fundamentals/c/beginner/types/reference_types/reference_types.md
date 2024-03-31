@@ -475,6 +475,7 @@ System.Int32
     <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class">class</a></td><td>System.Object</td><td>Classes are declared using the keyword class</td></tr>
      <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record">record</a></td><td>System.Object</td><td>You use the record modifier to define a reference type that provides built-in functionality for encapsulating data</td></tr>    
     <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface">interface</a></td><td>System.Object</td><td>An interface defines a contract. Any class, record or struct that implements that contract must provide an implementation of the members defined in the interface</td></tr>
+    <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types">Nullable Reference Types</a></td><td>System.Object</td><td>Nullable reference types are available in code that has opted in to a *nullable* aware context</td></tr>
         <tr><td><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/collections">Collections</a></td><td>System.Collections.Generic</td><td>The .NET runtime provides many collection types that store and manage groups of related objects</td></tr>
     </tbody>
 </table>
@@ -508,23 +509,321 @@ In other words, a class can inherit implementation from one base class only. How
 
 A class can contain declarations of the following members:
 
-- Constructors
-- Constants
-- Fields
-- Finalizers
-- Methods
-- Properties
-- Indexers
-- Operators
-- Events
-- Delegates
-- Classes
-- Interfaces
-- Structure types
-- Enumeration types
+- [Constructors](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors)
+- [Constants](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants)
+- [Fields](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields)
+- [Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
+- [Methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)
+- [Properties](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+- [Indexers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+- [Operators](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+- [Events](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+- [Delegates](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/)
+- [Classes](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes)
+- [Interfaces](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces)
+- [Structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct)
+- [Enumeration types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum)
 
-###
+```csharp
+class Child
+{
+    private int age;
+    private string name;
 
-###
+    // Default constructor:
+    public Child()
+    {
+        name = "N/A";
+    }
 
-###
+    // Constructor:
+    public Child(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Printing method:
+    public void PrintChild()
+    {
+        Console.WriteLine("{0}, {1} years old.", name, age);
+    }
+}
+
+class StringTest
+{
+    static void Main()
+    {
+        // Create objects by using the new operator:
+        Child child1 = new Child("Craig", 11);
+        Child child2 = new Child("Sally", 10);
+
+        // Create an object using the default constructor:
+        Child child3 = new Child();
+
+        // Display results:
+        Console.Write("Child #1: ");
+        child1.PrintChild();
+        Console.Write("Child #2: ");
+        child2.PrintChild();
+        Console.Write("Child #3: ");
+        child3.PrintChild();
+    }
+}
+/* Output:
+    Child #1: Craig, 11 years old.
+    Child #2: Sally, 10 years old.
+    Child #3: N/A, 0 years old.
+*/
+```
+Explanation
+- Notice that in the previous example the private fields (name and age) can only be accessed through the public method of the Child class. For example, you cannot print the child's name, from the Main method, using a statement like this:
+
+```csharp
+Console.Write(child1.name);   // Error
+```
+- Accessing private members of Child from Main would only be possible if Main were a member of the class.
+
+- Types declared inside a class without an access modifier default to private, so the data members in this example would still be private if the keyword were removed.
+
+- Finally, notice that for the object created using the parameterless constructor (child3), the age field was initialized to zero by default.
+
+### record
+
+You use the `record` modifier to define a reference type that provides built-in functionality for encapsulating data. C# 10 allows the record class syntax as a synonym to clarify a reference type, and record struct to define a value type with similar functionality
+
+- When you declare a primary constructor on a `record`, the compiler generates public properties for the primary constructor parameters. 
+- The primary constructor parameters to a record are referred to as positional parameters. 
+- The compiler creates positional properties that mirror the primary constructor or positional parameters. 
+- The compiler doesn't synthesize properties for primary constructor parameters on types that don't have the record modifier
+
+The following two examples demonstrate `record` (or `record class`) reference types:
+
+```csharp
+public record Person(string FirstName, string LastName);
+```
+
+```csharp
+public record Person
+{
+    public required string FirstName { get; init; }
+    public required string LastName { get; init; }
+};
+```
+
+The following two examples demonstrate `record struct` value types:
+
+```csharp
+public readonly record struct Point(double X, double Y, double Z);
+```
+
+```csharp
+public record struct Point
+{
+    public double X { get; init; }
+    public double Y { get; init; }
+    public double Z { get; init; }
+}
+```
+
+You can also create records with mutable properties and fields:
+
+```csharp
+public record Person
+{
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+};
+```
+
+Record structs can be mutable as well, both positional record structs and record structs with no positional parameters:
+
+> While records can be mutable, they're primarily intended for supporting immutable data models
+
+- [Concise syntax for creating a reference type with immutable properties](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#positional-syntax-for-property-definition)
+- Built-in behavior useful for a data-centric reference type:
+    - [Value equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#value-equality)
+    - [Concise syntax for nondestructive mutation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#nondestructive-mutation)
+    - [Built-in formatting for display](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#built-in-formatting-for-display)
+
+distinctions between records that are reference types and records that are value types
+
+- A `record` or a `record class` declares a reference type. The `class` keyword is optional, but can add clarity for readers. A `record struct` declares a value type.
+Positional properties are immutable in a `record class` and a `readonly record struct`. They're mutable in a `record struct`
+- You should decide between a `record class` and a `record struct` similar to deciding between a `class` and a `struct`
+- The term *record* is used to describe behavior that applies to all record types. Either `record struct` or `record class` is used to describe behavior that applies to only `struct` or `class` types, respectively.
+
+#### Immutability
+
+#### Positional syntax for property definition
+
+#### Value equality
+
+#### Inheritance
+
+#### Generic contraints in record
+
+### interface
+> An interface defines a contract. 
+
+- Any `class`, `record` or `struct` that implements that contract must provide an implementation of the members defined in the interface.
+
+- An interface may define a default implementation for members. It may also define static members in order to provide a single implementation for common functionality
+
+- Beginning with C# 11, an interface may define static abstract or static virtual members to declare that an implementing type must provide the declared members
+- Typically, static virtual methods declare that an implementation must define a set of overloaded operators
+
+- In the following example, class `ImplementationClass` must implement a method named `SampleMethod` that has no parameters and returns void
+
+```csharp
+interface ISampleInterface
+{
+    void SampleMethod();
+}
+
+class ImplementationClass : ISampleInterface
+{
+    // Explicit interface member implementation:
+    void ISampleInterface.SampleMethod()
+    {
+        // Method implementation.
+    }
+
+    static void Main()
+    {
+        // Declare an interface instance.
+        ISampleInterface obj = new ImplementationClass();
+
+        // Call the member.
+        obj.SampleMethod();
+    }
+}
+```
+
+An interface can be a member of a namespace or a class. An interface declaration can contain declarations (signatures without any implementation) of the following members:
+
+- [Methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)
+- [Properties](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+- [Indexers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+- [Events](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+
+#### Default interface members
+
+> These preceding member declarations typically don't contain a body. 
+
+- An interface member may declare a body. 
+- Member bodies in an interface are the default implementation. 
+- Members with bodies permit the interface to provide a "default" implementation for classes and structs that don't provide an overriding implementation. 
+
+An interface may include
+
+- [Constants](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const)
+- [Operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading)
+- [Static constructor](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors#static-constructors)
+- [Nested types](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/nested-types)
+- [Static fields, methods, properties, indexers, and events](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static)
+- [Member declarations using the explicit interface implementation syntax](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static)
+- Explicit access modifiers (the default access is [public](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/access-modifiers)).
+
+#### Static abstract and virtual members
+
+Beginning with C# 11, an interface may declare static abstract and static virtual members for all member types except fields. Interfaces can declare that implementing types must define operators or other static members. This feature enables generic algorithms to specify number-like behavior. You can see examples in the numeric types in the .NET runtime, such as System.Numerics.INumber<TSelf>. These interfaces define common mathematical operators that are implemented by many numeric types. The compiler must resolve calls to static virtual and static abstract methods at compile time. The static virtual and static abstract methods declared in interfaces don't have a runtime dispatch mechanism analogous to virtual or abstract methods declared in classes. Instead, the compiler uses type information available at compile time. Therefore, static virtual methods are almost exclusively declared in generic interfaces. Furthermore, most interfaces that declare static virtual or static abstract methods declare that one of the type parameters must implement the declared interface. For example, the INumber<T> interface declares that T must implement INumber<T>. The compiler uses the type argument to resolve calls to the methods and operators declared in the interface declaration. For example, the int type implements INumber<int>. When the type parameter T denotes the type argument int, the static members declared on int are invoked. Alternatively, when double is the type argument, the static members declared on the double type are invoked.
+You can try this feature by working with the tutorial on [static abstract members in interfaces](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/static-virtual-interface-members).
+
+#### Interface inheritance
+
+- Interfaces may not contain instance state. 
+- While static fields are now permitted, instance fields aren't permitted in interfaces. 
+- Instance auto-properties aren't supported in interfaces, as they would implicitly declare a hidden field. This rule has a subtle effect on property declarations. 
+In an interface declaration, the following code doesn't declare an auto-implemented property as it does in a class or struct. Instead, it declares a property that doesn't have a default implementation but must be implemented in any type that implements the interface
+
+```csharp
+public interface INamed
+{
+  public string Name {get; set;}
+}
+```
+- An interface can inherit from one or more base interfaces. When an interface [overrides a method](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override) implemented in a base interface, it must use the [explicit interface implementation](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/explicit-interface-implementation) syntax.
+
+- When a base type list contains a base class and interfaces, the base class must come first in the list.
+
+- A class that implements an interface can explicitly implement members of that interface. An explicitly implemented member can't be accessed through a class instance, but only through an instance of the interface. In addition, default interface members can only be accessed through an instance of the interface
+
+#### interface implementation
+
+In this example, the interface contains the property declaration and the class contains the implementation. Any instance of a class that implements `IPoint` has integer properties `x` and `y`
+
+```csharp
+interface IPoint
+{
+    // Property signatures:
+    int X { get; set; }
+
+    int Y { get; set; }
+
+    double Distance { get; }
+}
+
+class Point : IPoint
+{
+    // Constructor:
+    public Point(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    // Property implementation:
+    public int X { get; set; }
+
+    public int Y { get; set; }
+
+    // Property implementation
+    public double Distance =>
+       Math.Sqrt(X * X + Y * Y);
+}
+
+class MainClass
+{
+    static void PrintPoint(IPoint p)
+    {
+        Console.WriteLine("x={0}, y={1}", p.X, p.Y);
+    }
+
+    static void Main()
+    {
+        IPoint p = new Point(2, 3);
+        Console.Write("My Point: ");
+        PrintPoint(p);
+    }
+}
+// Output: My Point: x=2, y=3
+```
+
+### Nullable reference Types
+
+> Nullable reference types are available in code that has opted in to a nullable aware context
+
+Nullable reference types, the null static analysis warnings, and the null-forgiving operator are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas
+
+In a nullable aware context:
+
+- A variable of a reference type `T` must be initialized with non-null, and may never be assigned a value that may be `null`.
+- A variable of a reference type `T?` may be initialized with `null` or assigned `null`, but is required to be checked against `null` before de-referencing.
+- A variable `m` of type `T?` is considered to be non-null when you apply the null-forgiving operator, as in `m!`.
+
+The distinctions between a non-nullable reference type `T` and a nullable reference type `T?` are enforced by the compiler's interpretation of the preceding rules. 
+- A variable of type `T` and a variable of type `T?` are represented by the same .NET type. 
+The following example declares a non-nullable string and a nullable string, and then uses the null-forgiving operator to assign a value to a non-nullable string:
+
+```csharp
+string notNull = "Hello";
+string? nullable = default;
+notNull = nullable!; // null forgiveness
+```
+
+#### Setting the nullable context
+- There are two ways to control the nullable context. At the project level, you can add the `<Nullable>enable</Nullable>`project setting.
+- In a single C# source file, you can add the #nullable enable pragma to enable the nullable context. See the article on setting a nullable strategy. 
+- Prior to .NET 6, new projects use the default, `<Nullable>disable</Nullable>`. 
+- Beginning with .NET 6, new projects include the `<Nullable>enable</Nullable>` element in the project file.

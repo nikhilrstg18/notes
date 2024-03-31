@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
   const image = getImage(data.file.childImageSharp);
   return (
     <Site>
-      <div className={styles.container}>
+      <div className="d-flex justify-content-around mt-4 w-100">
         <div className={styles.header}>
           <h1>{welcome}</h1>
           <hr />

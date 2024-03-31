@@ -35,7 +35,7 @@ export default function Nav({ section }) {
         <Link to="/">
           <GatsbyImage image={logo} objectFit="contain" alt="logo" />
         </Link>
-        <h1>{section}</h1>
+        <h1 className="text-truncate">{section}</h1>
       </div>
       <div className={styles.nav}>
         <div>

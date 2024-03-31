@@ -9,7 +9,7 @@ export default function Notebook({ children, content, sideMenu }) {
   return (
     <div className="site-container">
       <Nav section={section}></Nav>
-      <div className="site-content">
+      <div className="notebook-content">
         <Aside sideMenu={sideMenu}></Aside>
         <main>{children}</main>
       </div>

@@ -26,10 +26,10 @@ export default function Aside({ sideMenu }) {
         <Link to="../">👈</Link>
       </p>
       {sideMenu?.map((sm) => (
-        <div className={styles.section}>
+        <div className={styles.section} key="sm">
           <ul>
             {sm.menu?.map((m) => (
-              <li>
+              <li key={m?.id}>
                 <Link to={m?.name}>{titleCase(m?.name)}</Link>
               </li>
             ))}

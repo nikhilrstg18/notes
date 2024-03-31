@@ -3,6 +3,9 @@
   flex-flow: row wrap;
   padding: 2rem;
 }
+.books a {
+  margin: auto;
+}
 .book2 {
   min-height: 100px;
   color: white;
@@ -30,7 +33,6 @@
   min-width: 10em;
   cursor: pointer;
 }
-
 .book {
   height: 250px;
   width: 175px;
@@ -50,7 +52,6 @@
   z-index: 999;
   box-shadow: 20px 10px 50px rgba(0, 0, 0, 0.2);
 }
-
 .bookCover {
   background: linear-gradient(128.87deg, #cc4b48 14.05%, #ca6e6d 89.3%);
   height: 250px;

@@ -14,9 +14,11 @@
 }
 .brand {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: left;
   align-items: center;
+  max-width: 75%;
+  text-overflow: ellipsis;
 }
 .brand h1 {
   margin: 0;

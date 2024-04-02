@@ -16,16 +16,17 @@ export default function Aside({ sideMenu }) {
     );
 
     // Join the words back together with spaces
-    let titleCaseString = capitalizedWords.join(" ");
+    let titleCaseString = capitalizedWords.map(w=> w.replace(/[\d]+/g, '')).join(" ");
 
     return titleCaseString;
   }
+  debugger
   return (
     <aside>
       <p className={styles.home}>
         <Link to="../">👈</Link>
       </p>
-      {sideMenu?.map((sm) => (
+      {sideMenu.sort((a,b)=>a?.name -b?.name)?.map((sm) => (
         <div className={styles.section} key="sm">
           <ul>
             {sm.menu?.map((m) => (

@@ -7,7 +7,7 @@ export default function Book({ data }) {
   const { html, frontmatter, tableOfContents, timeToRead } =
     data.markdownRemark;
   const { title, stack, next, prev, featureImg } = frontmatter;
-  const sideMenu = customSort(data?.allDirectory?.edges?.map((x) => x.node));
+  const sideMenu = data?.allDirectory?.edges?.map((x) => x.node).sort((a,b)=>a.name-b.name)
 
   function customSort(words) {
     const order = [
@@ -59,11 +59,12 @@ export default function Book({ data }) {
 
     return output;
   }
+  debugger
 
   const sectionMenu = toSectionMenu(sideMenu);
 
   return (
-    <Notebook content={tableOfContents} sideMenu={sectionMenu}>
+    <Notebook content={tableOfContents} sideMenu={sectionMenu} stack={stack}>
       <div className={styles.container}>
         <div className={styles.book}>
           <h1>{title}</h1>
@@ -105,7 +106,7 @@ export default function Book({ data }) {
 }
 export const query = graphql`
   query BookInfo($slug: String) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
       html
       frontmatter {
         slug
@@ -119,10 +120,8 @@ export const query = graphql`
       timeToRead
     }
     allDirectory(
-      filter: {
-        sourceInstanceName: { eq: "books" }
-        relativeDirectory: { eq: $slug }
-      }
+      filter: {sourceInstanceName: {eq: "books"}, relativeDirectory: {eq: $slug}}
+      sort: {name: ASC}
     ) {
       edges {
         node {

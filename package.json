@@ -25,6 +25,7 @@
     "gatsby-plugin-page-progress": "^2.2.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-remark-autolink-headers": "^6.13.1",
     "gatsby-remark-gifs": "^1.2.0",
     "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-remark-images": "^7.13.1",

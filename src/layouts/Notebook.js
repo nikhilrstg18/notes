@@ -4,11 +4,10 @@ import Aside from "../components/Aside";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
-export default function Notebook({ children, content, sideMenu }) {
-  const section = sideMenu[0]?.section;
+export default function Notebook({ children, sideMenu, stack }) {
   return (
     <div className="site-container">
-      <Nav section={section}></Nav>
+      <Nav section={stack}></Nav>
       <div className="notebook-content">
         <Aside sideMenu={sideMenu}></Aside>
         <main>{children}</main>

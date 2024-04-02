@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
 import Notebook from "../layouts/Notebook";
 import * as styles from "./../styles/book.module.css";
@@ -6,31 +6,11 @@ import * as styles from "./../styles/book.module.css";
 export default function Book({ data }) {
   const { html, frontmatter, tableOfContents, timeToRead } =
     data.markdownRemark;
-  const { title, stack, next, prev, featureImg } = frontmatter;
-  const sideMenu = data?.allDirectory?.edges?.map((x) => x.node).sort((a,b)=>a.name-b.name)
+  const { title, stack } = frontmatter;
+  const sideMenu = data?.allDirectory?.edges
+    ?.map((x) => x.node)
+    .sort((a, b) => a.name - b.name);
 
-  function customSort(words) {
-    const order = [
-      "fundamentals",
-      "beginner",
-      "intermediate",
-      "advance",
-      "export",
-    ];
-
-    // Create a map to store the indices of words in the order array
-    const wordIndexMap = {};
-    order.forEach((word, index) => {
-      wordIndexMap[word] = index;
-    });
-
-    // Custom sorting function
-    words.sort((a, b) => {
-      return wordIndexMap[a.name] - wordIndexMap[b.name];
-    });
-
-    return words;
-  }
   function toSectionMenu(input) {
     const output = [];
 
@@ -59,7 +39,6 @@ export default function Book({ data }) {
 
     return output;
   }
-  debugger
 
   const sectionMenu = toSectionMenu(sideMenu);
 
@@ -106,7 +85,7 @@ export default function Book({ data }) {
 }
 export const query = graphql`
   query BookInfo($slug: String) {
-    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         slug
@@ -120,8 +99,11 @@ export const query = graphql`
       timeToRead
     }
     allDirectory(
-      filter: {sourceInstanceName: {eq: "books"}, relativeDirectory: {eq: $slug}}
-      sort: {name: ASC}
+      filter: {
+        sourceInstanceName: { eq: "books" }
+        relativeDirectory: { eq: $slug }
+      }
+      sort: { name: ASC }
     ) {
       edges {
         node {

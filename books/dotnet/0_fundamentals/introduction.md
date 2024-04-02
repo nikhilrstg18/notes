@@ -23,9 +23,9 @@ Download and Install
 
 1. [.Net SDK](http://dot.net)
 
-![dot.net](../../../src/images/dotnet/c/basic/b1.png)
+![dot.net](../../../src/images/dotnet/fundamentals/b1.png)
 
-![Download LTS SDK](../../../src/images/dotnet/c/basic/b2.png)
+![Download LTS SDK](../../../src/images/dotnet/fundamentals/b2.png)
 
 Steps after SDK is downloaded
 	1. Run the Installer 
@@ -41,11 +41,11 @@ Steps after SDK is downloaded
 
 ## Architecture of .Net
 
-![.Net Arch](../../../src/images/dotnet/c/basic/b3.png)
+![.Net Arch](../../../src/images/dotnet/fundamentals/b3.png)
 
 .Net has 2 major components as below
 
-![.Net components](../../../src/images/dotnet/c/basic/b4.png)
+![.Net components](../../../src/images/dotnet/fundamentals/b4.png)
 
 ### Common Language Runtime (CLR) 
 `CLR` is the <ins>execution engine that handles running applications</ins>. It provides services like thread management, garbage collection, type-safety, exception handling, and more

@@ -4,7 +4,7 @@ import * as styles from "../styles/aside.module.css";
 
 export default function Aside({ sideMenu }) {
   function titleCase(str) {
-    if (str == "c") {
+    if (str == "0_c") {
       str = "c#";
     }
     // Split the string by underscores
@@ -20,7 +20,6 @@ export default function Aside({ sideMenu }) {
 
     return titleCaseString;
   }
-  debugger
   return (
     <aside>
       <p className={styles.home}>

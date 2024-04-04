@@ -6,7 +6,7 @@ import * as styles from "./../styles/book.module.css";
 export default function Book({ data }) {
   const { html, frontmatter, tableOfContents, timeToRead } =
     data.markdownRemark;
-  const { title, stack } = frontmatter;
+  const { title, stack, tags } = frontmatter;
   const sideMenu = data?.allDirectory?.edges
     ?.map((x) => x.node)
     .sort((a, b) => a.name - b.name);
@@ -50,6 +50,19 @@ export default function Book({ data }) {
           <cite>
             {stack} - <span>{timeToRead}</span>min&nbsp;read
           </cite>
+          {tags ? (
+            <div className={styles.tags}>
+              <p>in this page</p>
+              <div>
+                {tags?.map((t) => (
+                  <div>{t}</div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div dangerouslySetInnerHTML={{ __html: html }} />
           {/* <div className={styles.np}>
             {prev ? (
@@ -91,8 +104,7 @@ export const query = graphql`
         slug
         stack
         title
-        next
-        prev
+        tags
       }
       id
       tableOfContents(maxDepth: 6)

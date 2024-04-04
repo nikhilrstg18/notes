@@ -64,7 +64,7 @@ h6 {
 }
 .footer {
   text-align: center;
-  margin: 3rem 0 2rem 0;
+  margin: 3rem 0 3rem 0;
 }
 .footer img {
   width: 14px;
@@ -104,4 +104,31 @@ p img {
 .tableOfContent ul li a {
   text-decoration: none;
   color: var(--secondary);
+}
+.tags{
+  font-size: var(--global-fs-sm);
+  color: var(--table-caption);
+}
+.tags p{
+  margin: 0;
+}
+.tags div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width: 600px) {
+  .tray{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    background: '#f5f5f5';
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px
+  }
+}
+@media only screen and (min-width:601px){
+  .tray{
+    display: none;
+  }
 }

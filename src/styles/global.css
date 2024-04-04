@@ -8,7 +8,9 @@
   --bq-q: #ccc;
   --secondary: lightcoral;
   --table-grey: #e6e6e6;
+  --table-caption:grey;
   --global-fs:15px;
+  --global-fs-sm:12px;
 }
 html,
 body {
@@ -47,6 +49,7 @@ ol li a:hover{
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   min-height: 100%;
 }
+
 .site-content  main, .notebook-content main {
   padding: 0.5rem;
   background: white;
@@ -112,7 +115,10 @@ table {
   margin:1.5rem 0;
 }
 table caption {
-  color: var(--secondary);
+  color: var(--table-caption);
+  text-align: center;
+  font-style: italic;
+  font-size: var(--global-fs-sm);
 }
 table thead {
   color: #333;
@@ -132,4 +138,14 @@ table tbody tr:nth-child(2n) {
 }
 table tbody tr td {
   padding: 0.4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .notebook-content Aside {
+    display: none;
+  }
+  .notebook-content main{
+    margin-left: 0;
+    min-width: 100%;
+  }
 }

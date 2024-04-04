@@ -2,7 +2,7 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import React from "react";
 import * as styles from "../styles/nav.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import { Linkedin, Twitter } from "react-bootstrap-icons";
 export default function Nav({ section }) {
   const data = useStaticQuery(graphql`
     query NavbarInfo {
@@ -18,8 +18,8 @@ export default function Nav({ section }) {
             blurredOptions: { width: 10 }
             layout: FIXED
             placeholder: BLURRED
-            height: 50
-            width: 50
+            height: 45
+            width: 45
           )
         }
       }
@@ -41,8 +41,13 @@ export default function Nav({ section }) {
         <div>
           <Link to="/books">Books</Link>
         </div>
-        <div> | {title} | </div>
-        <div>Social Icons ...</div>
+        <div className={styles.social}>
+          <a href="https://www.linkedin.com/in/nikhil-rustagi/" target="_blank">
+          <span>
+            <Linkedin color="royalblue" size={16} />
+          </span>
+          </a>          
+        </div>
       </div>
     </nav>
   );

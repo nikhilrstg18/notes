@@ -134,7 +134,7 @@ C# provides the following built-in value types, also known as `simple types`:
 <table>
     <caption>Built-in Value Types</caption>
     <thead>
-        <tr><th>Classification</th><th>C# type</th><th>.Net Type</th><th>Bytes(8 bit)</th><th>Range</th><th>Precision</th></tr>
+        <tr><th></th><th>C# type</th><th>.Net Type</th><th>Bytes</th><th>Range</th><th>Precision</th></tr>
     </thead>
     <tbody>
     <tr><td rowspan=4>Integral Numeric</td><td>byte</td><td>System.Byte</td><td>1</td><td>0 to 255</td><td></td></tr>

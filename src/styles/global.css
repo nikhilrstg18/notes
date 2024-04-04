@@ -140,12 +140,15 @@ table tbody tr td {
   padding: 0.4rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 576px) {
   .notebook-content Aside {
     display: none;
   }
   .notebook-content main{
     margin-left: 0;
     min-width: 100%;
+  }
+  deckgo-highlight-code {
+    margin: 1rem 0;
   }
 }

@@ -50,18 +50,10 @@ export default function Book({ data }) {
           <cite>
             {stack} - <span>{timeToRead}</span>min&nbsp;read
           </cite>
-          {tags ? (
-            <div className={styles.tags}>
-              <p>in this page</p>
-              <div>
-                {tags?.map((t) => (
-                  <div>{t}</div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
+          <div className={styles.tableOfContentMobile}>
+            <h4>Table of Content</h4>
+            <div dangerouslySetInnerHTML={{ __html: tableOfContents }}></div>
+          </div>
 
           <div dangerouslySetInnerHTML={{ __html: html }} />
           {/* <div className={styles.np}>
@@ -86,7 +78,7 @@ export default function Book({ data }) {
             <img src="/gatsby.png" alt="gatsby" />
           </footer>
         </div>
-        <div>
+        <div className=".mob">
           <div className={styles.tableOfContent}>
             <h4>Table of Content</h4>
             <div dangerouslySetInnerHTML={{ __html: tableOfContents }}></div>

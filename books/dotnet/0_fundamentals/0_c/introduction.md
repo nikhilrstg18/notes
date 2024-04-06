@@ -142,3 +142,23 @@ public struct Coords<T> where T : unmanaged
     public T Y;
 }
 ```
+
+```markdown markmap
+# c#
+## Getting Started
+### Types
+### Programming building blocks
+### Major Language Areas
+### Tutorials
+## Fundamentals
+### Exception and Errors
+### Functional Techniques
+### Object-oriented Programming
+## LINQ
+### Getting Started
+### Standard Query Operaters
+### LINQ to Objects
+### LINQ:File Directories
+### LINQ:How to
+
+```

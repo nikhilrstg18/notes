@@ -1,7 +1,7 @@
 ---
 title: "Beginner"
 slug: "dotnet/1_beginner"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/beginner/engine"
 level: ""
@@ -128,45 +128,8 @@ public class Program
 
 
 ```markdown markmap
-# Raodmap
-
-## Fundamentals
-Heading 1 text
-
-### Item 1
-
-### Item 2
-
-## Beginner
-
-Heading 2 text
-
-### Item 1
-
-### Item 2
-
-## Intermediate
-
-Heading 3 text
-
-### Item 1
-
-### Item 2
-
-## Advance
-
-Heading 4 text
-
-### Item 1
-
-### Item 2
-
-## Expert
-
-Heading 5 text
-
-### Item 1
-
-### Item 2
+# 🛣️
+## Async Programming
+## Design Patterns
 ```
 

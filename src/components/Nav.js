@@ -44,7 +44,7 @@ export default function Nav({ section }) {
         <div className={styles.social}>
           <a href="https://www.linkedin.com/in/nikhil-rustagi/" target="_blank">
           <span>
-            <Linkedin color="royalblue" size={16} />
+            <Linkedin color="royalblue" size={24} />
           </span>
           </a>          
         </div>

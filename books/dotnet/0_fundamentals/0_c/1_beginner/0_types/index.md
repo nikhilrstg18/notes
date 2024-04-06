@@ -1,7 +1,7 @@
 ---
 title: "Types"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/0_types"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/statements_expressions"
 level: ""

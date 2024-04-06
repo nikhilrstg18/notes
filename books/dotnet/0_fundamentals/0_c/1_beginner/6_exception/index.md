@@ -1,7 +1,7 @@
 ---
 title: "Exception Handling"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/exception"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/oops"
 level: ""

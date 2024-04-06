@@ -1,7 +1,7 @@
 ---
 title: "Getting Started"
 slug: "dotnet/0_fundamentals/0_c/0_getting_started"
-stack: "C#"
+stack: "C#.NET"
 tags: ['C#', '.Net Archtitecture', 'CLR', 'CTS', 'CIL','Managed Vs Unmanaged Code', Library]
 ---
 

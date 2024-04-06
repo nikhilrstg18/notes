@@ -15,6 +15,11 @@
 .book p {
   text-align: justify;
 }
+.book p > code {
+  background: var(--table-grey);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
 .book h2,
 h3,
 h4,
@@ -83,6 +88,8 @@ p img {
 .tableOfContent h4 {
   background: unset;
   direction: ltr;
+  text-align: center;
+  font-size: 2rem;
 }
 .tableOfContent ul {
   list-style: none;
@@ -133,7 +140,7 @@ p img {
     background: unset;
     color: var(--table-caption);
     margin: .25rem 0;
-    display: none;
+    font-size: 1rem;
    }
    .tableOfContentMobile ul {
     list-style: none;

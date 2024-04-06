@@ -1,7 +1,7 @@
 ---
 title: "Fundamentals"
 slug: "dotnet/0_fundamentals"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/fundamentals/engine"
 level: ""
@@ -352,45 +352,29 @@ class Program
 
 
 ```markdown markmap
-# Raodmap
+# 🛣️
 
 ## Fundamentals
-Heading 1 text
 
-### Item 1
-
-### Item 2
+### C# 🟡
+### Framework Class Libraries
 
 ## Beginner
 
-Heading 2 text
-
-### Item 1
-
-### Item 2
+### Async Programming
+### Design Patterns
 
 ## Intermediate
 
-Heading 3 text
-
-### Item 1
-
-### Item 2
+### coming soon...
 
 ## Advance
 
-Heading 4 text
-
-### Item 1
-
-### Item 2
+### coming soon...
 
 ## Expert
 
-Heading 5 text
+### coming soon...
 
-### Item 1
-
-### Item 2
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: "Working with Texts"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/texts"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/exception"
 level: ""

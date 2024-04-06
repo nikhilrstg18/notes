@@ -1,7 +1,7 @@
 ---
 title: "Control Flow"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/control_flow"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/dates"
 level: ""

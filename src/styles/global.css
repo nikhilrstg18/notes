@@ -11,6 +11,10 @@
   --table-caption:grey;
   --global-fs:15px;
   --global-fs-sm:12px;
+  --deckgo-highlight-code-font-size:var(--global-fs);
+  --bs-code-color:var(--secondary);
+  --deckgo-highlight-code-font-family:var(consolas);
+
 }
 html,
 body {
@@ -42,7 +46,7 @@ ol li a:hover{
   max-width: 20%;
   background: var(--site-content);
   padding: 0.5rem;
-  margin-top: 66px;
+  margin-top: 60px;
   position: fixed;
   overflow: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -99,6 +103,9 @@ deckgo-highlight-code {
   margin: 1rem;
   font-size: var(--global-fs);
 }
+deckgo-highlight-code .token{
+  font-size: var(--global-fs);
+}
 figcaption {
   text-align: center;
   font-size: 0.8rem;
@@ -151,4 +158,7 @@ table tbody tr td {
   deckgo-highlight-code {
     margin: 1rem 0;
   }
+}
+p code .language-text{
+ background: var(--table-grey);
 }

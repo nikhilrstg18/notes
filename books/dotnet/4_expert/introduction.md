@@ -1,7 +1,7 @@
 ---
 title: "Expert"
 slug: "dotnet/expert"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/expert/engine"
 level: ""

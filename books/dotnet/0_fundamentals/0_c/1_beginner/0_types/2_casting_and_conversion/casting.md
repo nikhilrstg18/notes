@@ -1,7 +1,7 @@
 ---
 title: "Casting & Conversion"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/0_types/2_casting_and_conversion"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/statements_expressions"
 level: ""

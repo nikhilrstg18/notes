@@ -1,7 +1,7 @@
 ---
 title: "Reference Types"
 slug: "dotnet/0_fundamentals/0_c/0_getting_started/1_types/1_reference_types"
-stack: "C#"
+stack: "C#.NET"
 ---
 
 ## Overview

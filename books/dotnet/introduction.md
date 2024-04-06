@@ -1,7 +1,7 @@
 ---
 title: "Intro"
 slug: "dotnet"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/fundamentals/engine"
 level: ""

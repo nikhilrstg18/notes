@@ -1,7 +1,7 @@
 ---
 title: "Working with Dates"
 slug: "dotnet/0_fundamentals/0_c/1_beginner/dates"
-stack: "C#"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/0_fundamentals/0_c/1_beginner/texts"
 level: ""

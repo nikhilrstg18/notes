@@ -23,7 +23,7 @@ export default function Aside({ sideMenu }) {
   return (
     <aside>
       <p className={styles.home}>
-        <Link to="../">👈</Link>
+        <Link to="../" title="Back">👈</Link>
       </p>
       {sideMenu.sort((a,b)=>a?.name -b?.name)?.map((sm) => (
         <div className={styles.section} key="sm">

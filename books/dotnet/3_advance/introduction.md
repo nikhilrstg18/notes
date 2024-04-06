@@ -1,7 +1,7 @@
 ---
 title: "Advance"
 slug: "dotnet/advance"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/advance/engine"
 level: ""

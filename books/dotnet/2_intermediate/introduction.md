@@ -1,7 +1,7 @@
 ---
 title: "Intermediate"
 slug: "dotnet/2_intermediate"
-stack: ".Net"
+stack: ".NET"
 prev: ""
 next: "dotnet/intermediate/engine"
 level: ""

@@ -51,7 +51,7 @@ export default function Book({ data }) {
             {stack} - <span>{timeToRead}</span>min&nbsp;read
           </cite>
           <div className={styles.tableOfContentMobile}>
-            <h4>Table of Content</h4>
+            <h4>In this page</h4>
             <div dangerouslySetInnerHTML={{ __html: tableOfContents }}></div>
           </div>
 
@@ -80,7 +80,7 @@ export default function Book({ data }) {
         </div>
         <div className=".mob">
           <div className={styles.tableOfContent}>
-            <h4>Table of Content</h4>
+            <h4 title="HeliCoptor View">🚁</h4>
             <div dangerouslySetInnerHTML={{ __html: tableOfContents }}></div>
           </div>
         </div>

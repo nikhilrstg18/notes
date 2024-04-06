@@ -1,7 +1,7 @@
 ---
 title: "Casting & Conversion"
 slug: "dotnet/0_fundamentals/0_c/0_getting_started/1_types/2_casting_and_conversion"
-stack: "C#"
+stack: "C#.NET"
 ---
 
 - Because C# is statically-typed at compile time, after a variable is declared, it can't be declared again or assigned a value of another type unless that type is implicitly convertible to the variable's type. For example, the string can't be implicitly converted to int.

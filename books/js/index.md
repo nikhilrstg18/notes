@@ -22,7 +22,7 @@ JavaScript (JS) is
 - **multi-paradigm** (functional and object-oriented)
 - a programming language with **functions as first-class citizens**.
 
-> Note: you will be able to elaborate and explain javascript with more clarity by end of this section
+> ✏️: you will be able to elaborate and explain javascript with more clarity by end of this section
 While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat. supporting object-oriented, imperative, and declarative (e.g. functional programming) styles. 
 
 Read more @ [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

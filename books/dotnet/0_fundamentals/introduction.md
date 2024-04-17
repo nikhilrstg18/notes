@@ -1,9 +1,9 @@
 ---
 title: "Fundamentals"
-slug: "dotnet/0_fundamentals"
+slug: "dotnet"
 stack: ".NET"
 prev: ""
-next: "dotnet/fundamentals/engine"
+next: "dotnet/0_fundamentals"
 level: ""
 date: "Wed Mar 06 2024 22:16:35 GMT+0530 (India Standard Time)"
 ---

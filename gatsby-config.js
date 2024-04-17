@@ -50,6 +50,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "static",
+        path: "./static",
+      },
+      __key: "static",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "books",
         path: "./books",
       },

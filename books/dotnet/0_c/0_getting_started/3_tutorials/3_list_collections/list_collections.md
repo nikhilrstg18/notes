@@ -1,6 +1,6 @@
 ---
 title: "Tutorials"
-slug: "dotnet/0_c/0_getting_started/4_tutorials/3_list_collections"
+slug: "dotnet/0_c/0_getting_started/3_tutorials/3_list_collections"
 stack: "C#.NET"
 ---
 

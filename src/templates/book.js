@@ -75,7 +75,7 @@ export default function Book({ data }) {
           <footer className={styles.footer}>
             Written by <em>Nikhil Rustagi</em> | ©{" "}
             {new Date(Date.now()).getFullYear()} built with{" "}
-            <img src="/gatsby.png" alt="gatsby" />
+            <img src="https://nikhilrstg18.github.io/notes/gatsby.png" alt="gatsby" />
           </footer>
         </div>
         <div className=".mob">

@@ -5,7 +5,7 @@
   "description": "iq-notes",
   "author": "Nikhil",
   "keywords": [
-    "gatsby"
+    "notes", "c#", "javascript", ".Net", "interview"
   ],
   "scripts": {
     "develop": "gatsby develop",

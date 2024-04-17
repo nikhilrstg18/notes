@@ -12,7 +12,7 @@ Types described in previous section are build using these building block
     - Type Members
     - Statements
     - Expressions
-        - Operators
+    - Operators
 ```
 
 

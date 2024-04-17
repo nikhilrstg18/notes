@@ -1,6 +1,6 @@
 ---
 title: "Framework Class Library"
-slug: "dotnet/0_fundamentals/1_framework_class_libraries"
+slug: "dotnet/0_c/5_framework_class_libraries"
 stack: "C#.NET"
 ---
 
@@ -20,3 +20,4 @@ stack: "C#.NET"
 ## Async Programming
 ## Multithreading with TPL
 ## Diagnostics
+```

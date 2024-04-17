@@ -1,6 +1,6 @@
 ---
 title: "Tutorials"
-slug: "dotnet/0_c/0_getting_started/4_tutorials/2_branches_and_loops"
+slug: "dotnet/0_c/0_getting_started/3_tutorials/2_branches_and_loops"
 stack: "C#.NET"
 ---
 

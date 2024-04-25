@@ -1,7 +1,7 @@
 ---
 title: "Intro"
 slug: "dotnet/0_c"
-stack: "C#.Net"
+stack: "C#.NET"
 prev: "../"
 next: "dotnet/fundamentals/c"
 level: ""

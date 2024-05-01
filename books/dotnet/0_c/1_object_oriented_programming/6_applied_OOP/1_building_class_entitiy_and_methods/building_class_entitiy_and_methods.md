@@ -444,7 +444,7 @@ In Customer class, Retrieve is overloaded method, read more about [method overlo
 
 **Contract**
 
-```csharp{9-12, 16, 23, 2, 36, 45, 55, 65}
+```csharp{9-12, 16, 23, 27, 36, 45, 55, 65}
 // Customer.cs
 using System.Collection.Generics;
 
@@ -526,39 +526,6 @@ In VS, to see outline press `Ctrl` + `M` + `O` on keyboard
 - Over time, the code can extend the contract by adding new _properties_ and _methods_, but it should not remove _properties_ and _methods_ or modify a method signature once the class has been deployed to production.
 - This contract is also called the `class interface`.
 
-## Testing a class
-
-We are building our business layer independent from any user interface. How are we going to try it out? We can't run a DLL component.
-
-```csharp{}
-// CustomerTests.cs
-using xunit;
-
-namespace ACM.Tests
-{
-    public class CustomerTests
-    {
-        [Fact]
-        public void Customer_Valid_FullName()
-        {
-            // Arrange
-            var customer = new Customer();
-            customer.FirstName = "Bilbo";
-            customer.LastName = "Baggins";
-            string expected = "Bilbo Baggins"
-
-            // Act
-            var actual = customer.FullName;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-    }
-}
-```
-
-The best way to try out our code is to write a unit test. A unit test is another piece of code whose sole purpose is to test a particular unit, or piece of our code. We normally write unit tests for each property and method in our class. These often include tests with valid values, tests with invalid values, and tests for any corner cases. In this example, we test the FullName property. This is the test with valid values. We could also write tests for invalid values such as null or empty first or last name. There are several common techniques for organizing the code in a unit test. I use the Arrange, Act, Assert structure. In the Arrange section, we set up for our test. In this example, we create an instance of the class using the new keyword. We then use that instance to set test data in the properties. Lastly, we define the expected result of the test. In the Act section, we access the property or method we are testing. In the Assert section, we determine if our test was successful. We use the .NET Assert class to assert that our expected value and our actual value are equal. If they are equal, the test passes, otherwise, it fails
-
 ## Working with objects
 
 - Working with objects can seem a bit strange at first. Let's review how to create a new object.
@@ -628,6 +595,45 @@ namespace ACM.Tests
 {
     public class CustomerTests
     {
+
+    }
+}
+```
+
+- We create three new customers using the `new` keyword. The object variables `c1`, `c2`, and `c3` all reference different customers each with a unique `FirstName`.
+- If we access the object variable `c1` and drop down IntelliSense, we see that the InstanceCount property is not there.
+- To _access a static property_, we use the class name itself. Type `Customer.`, and we now see the `InstanceCount` property. In this test, we increment this property after each object is created to count the instances. The resulting value should be 3. Open the Test Explorer, pin it, and run this test. It passes.
+
+## Testing a class
+
+We are building our business layer independent from any user interface. How are we going to try it out? We can't run a DLL component.
+
+```csharp{}
+// CustomerTests.cs
+using xunit;
+
+namespace ACM.Tests
+{
+    public class CustomerTests
+    {
+        // Test instance Properties
+        [Fact]
+        public void Customer_Valid_FullName()
+        {
+            // Arrange
+            var customer = new Customer();
+            customer.FirstName = "Bilbo";
+            customer.LastName = "Baggins";
+            string expected = "Bilbo Baggins"
+
+            // Act
+            var actual = customer.FullName;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        // Test class Properties
         [Fact]
         public void Customer_Static()
         {
@@ -653,31 +659,291 @@ namespace ACM.Tests
 }
 ```
 
-- We create three new customers using the `new` keyword. The object variables `c1`, `c2`, and `c3` all reference different customers each with a unique `FirstName`.
-- If we access the object variable `c1` and drop down IntelliSense, we see that the InstanceCount property is not there.
-- To _access a static property_, we use the class name itself. Type `Customer.`, and we now see the `InstanceCount` property. In this test, we increment this property after each object is created to count the instances. The resulting value should be 3. Open the Test Explorer, pin it, and run this test. It passes.
+The best way to try out our code is to write a unit test. A unit test is another piece of code whose sole purpose is to test a particular unit, or piece of our code. We normally write unit tests for each property and method in our class. These often include tests with valid values, tests with invalid values, and tests for any corner cases. In this example, we test the FullName property. This is the test with valid values. We could also write tests for invalid values such as null or empty first or last name. There are several common techniques for organizing the code in a unit test. I use the Arrange, Act, Assert structure. In the Arrange section, we set up for our test. In this example, we create an instance of the class using the new keyword. We then use that instance to set test data in the properties. Lastly, we define the expected result of the test. In the Act section, we access the property or method we are testing. In the Assert section, we determine if our test was successful. We use the .NET Assert class to assert that our expected value and our actual value are equal. If they are equal, the test passes, otherwise, it fails
 
 ## Buidling Remaining classes
+
+Final cut off of Cutomer class
+
+```csharp
+// Customer.cs
+using System.Collection.Generics;
+
+namespace ACM.BL
+{
+    public class Customer
+    {
+        public Customer()
+        {
+        }
+
+        public Customer(int customerId)
+        {
+            CustomerId = customerId;
+        }
+
+        private string _lastName;
+        public int CustomerId {get; private set;}
+        public string EmailAddress {get; set;}
+        public string FirstName {get; set;}
+        public string LastName {
+            get => _lastName;
+            set =>_lastName = value
+        }
+        public string FullName {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+        public static int InstanceCount {get; set;}
+
+        ///<summary>
+        /// validates the customer data
+        ///</summary>
+        ///<returns><returns>
+        public bool Validate()
+        {
+            return !string.IsNullOrWhiteSpace(FullName);
+        }
+
+        ///<summary>
+        /// retrives all customer data
+        ///</summary>
+        ///<returns><returns>
+        public List<Customer> Retrieve()
+        {
+            // code that retrieve all customers from data store
+            return new List<Customer>();
+        }
+
+        ///<summary>
+        /// retrives customer data by id
+        ///</summary>
+        ///<returns><returns>
+        public Customer Retrieve(int customerId)
+        {
+            // code that retrieve customer from data store
+            return new Customer();
+        }
+
+        ///<summary>
+        /// persist customer data
+        ///</summary>
+        ///<returns><returns>
+        public bool Save()
+        {
+            // code that persist customer to data store
+            return true;
+        }
+    }
+}
+```
 
 ![Remaining classes](./../../../../../../src/images/dotnet/c/oops/boop-16.png)
 
 ```csharp
-// Product.cs | coming soon...
+using System.Collection.Generics;
+
+namespace ACM.BL
+{
+    public class Product
+    {
+        public Product()
+        {
+        }
+
+        public Product(int productId)
+        {
+            ProductId = productId
+        }
+
+        public int ProductId {get; set;}
+        public string ProductDescription {get; set;}
+        public string ProductName {get; set;}
+        public decimal? CurrentPrice {get; set;}
+
+        ///<summary>
+        /// validates the product data
+        ///</summary>
+        ///<returns><returns>
+        public bool Validate()
+        {
+            return !string.IsNullOrWhiteSpace(ProductName) && CurrentPrice is not null;
+        }
+
+        ///<summary>
+        /// retrives all product data
+        ///</summary>
+        ///<returns><returns>
+        public List<Product> Retrieve()
+        {
+            // code that retrieve all products from data store
+            return new List<Product>();
+        }
+
+        ///<summary>
+        /// retrives product data by id
+        ///</summary>
+        ///<returns><returns>
+        public Product Retrieve(int productId)
+        {
+            // code that retrieve product from data store
+            return new Product();
+        }
+
+        ///<summary>
+        /// persist product data
+        ///</summary>
+        ///<returns><returns>
+        public bool Save()
+        {
+            // code that persist customer to data store
+            return true;
+        }
+
+    }
+}
 ```
 
 ```csharp
-// Order.cs | coming soon...
+using System.Collection.Generics;
+
+namespace ACM.BL
+{
+    public class Order
+    {
+        public Order()
+        {
+        }
+
+        public Order(int orderId)
+        {
+            OrderId = orderId
+        }
+
+        public int OrderId {get; set;}
+        public DateTimeOffet? OrderDate {get; set;}
+        public Customer Customer {get; set;}
+        public List<OrderItem> OrderItems {get; set;}
+
+        ///<summary>
+        /// validates the Order data
+        ///</summary>
+        ///<returns><returns>
+        public bool Validate()
+        {
+            return OrderDate is not null;
+        }
+
+        ///<summary>
+        /// retrives all order data
+        ///</summary>
+        ///<returns><returns>
+        public List<Order> Retrieve()
+        {
+            // code that retrieve all products from data store
+            return new List<Order>();
+        }
+
+        ///<summary>
+        /// retrives order data by id
+        ///</summary>
+        ///<returns><returns>
+        public Order Retrieve(int orderId)
+        {
+            // code that retrieve product from data store
+            return new Order();
+        }
+
+        ///<summary>
+        /// persist order data
+        ///</summary>
+        ///<returns><returns>
+        public bool Save()
+        {
+            // code that persist order to data store
+            return true;
+        }
+
+    }
+}
 ```
 
 ```csharp
-// OrderItem.cs | coming soon...
+using System.Collection.Generics;
+
+namespace ACM.BL
+{
+    public class OrderItem
+    {
+        public OrderItem()
+        {
+        }
+
+        public OrderItem(int orderItemId)
+        {
+            OrderItemId = orderItemId
+        }
+
+        public int OrderItemId {get; set;}
+        public int ProductId {get; set;}
+        public decimal? PurchasePrice {get; set;}
+        public int Quantity {get; set;}
+
+        ///<summary>
+        /// validates the Order data
+        ///</summary>
+        ///<returns><returns>
+        public bool Validate()
+        {
+            return Quantity > 0 && ProductId > 0 && PurchasePrice is not null;
+        }
+
+        ///<summary>
+        /// retrives all order item data
+        ///</summary>
+        ///<returns><returns>
+        public List<OrderItem> Retrieve()
+        {
+            // code that retrieve all products from data store
+            return new List<OrderItem>();
+        }
+
+        ///<summary>
+        /// retrives order item data by id
+        ///</summary>
+        ///<returns><returns>
+        public OrderItem Retrieve(int orderItemId)
+        {
+            // code that retrieve product from data store
+            return new OrderItem();
+        }
+
+        ///<summary>
+        /// persist order item data
+        ///</summary>
+        ///<returns><returns>
+        public bool Save()
+        {
+            // code that persist order to data store
+            return true;
+        }
+    }
+}
 ```
+
+We now have created all the classes, but are they right classes?
+
+`❓ are they taking too much responsibility`
+
+![Too much responsibility with common methods](./../../../../../../src/images/dotnet/c/oops/boop-1.png)
 
 ## Summary
 
 ![Layering the app](./../../../../../../src/images/dotnet/c/oops/boop-8.png)
 
-![building  a class](./../../../../../../src/images/dotnet/c/oops/boop-9.png)
+![building a class](./../../../../../../src/images/dotnet/c/oops/boop-9.png)
 
 ![Defining Properties Manually](./../../../../../../src/images/dotnet/c/oops/boop-10.png)
 

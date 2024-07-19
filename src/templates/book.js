@@ -6,7 +6,7 @@ import * as styles from "./../styles/book.module.css";
 export default function Book({ data }) {
   const { html, frontmatter, tableOfContents, timeToRead } =
     data.markdownRemark;
-  const { title, stack, tags } = frontmatter;
+  const { title, stack } = frontmatter;
   const sideMenu = data?.allDirectory?.edges
     ?.map((x) => x.node)
     .sort((a, b) => a.name - b.name);

@@ -4,7 +4,7 @@ import * as styles from "../styles/aside.module.css";
 
 export default function Tray({ sideMenu }) {
   function titleCase(str) {
-    if (str == "0_c") {
+    if (str === "0_c") {
       str = "c#";
     }
     // Split the string by underscores

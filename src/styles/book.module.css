@@ -26,8 +26,8 @@ h4,
 h5,
 h6 {
   margin: 3rem 0 1rem 0;
-  color: grey;
-  background: linear-gradient(45deg, #1dd6c36e 1%, transparent 80%);
+  color: var(--secondary);
+  background: linear-gradient(45deg, var(--header) 1%, transparent 80%);
 }
 .book p:has(img) {
   display: block;
@@ -129,7 +129,7 @@ p img {
     width: 100%;
     bottom: 0;
     z-index: 1;
-    background: '#f5f5f5';
+    background: '#F1F8E8';
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px
   }

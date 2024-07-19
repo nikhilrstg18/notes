@@ -4,17 +4,18 @@
 }
 :root {
   --site-content: #f5f5f5;
-  --bq-bg: #f9f9f9;
-  --bq-q: #ccc;
-  --secondary: lightcoral;
-  --table-grey: #e6e6e6;
-  --table-caption:grey;
+  --secondary: #55AD9B;
+  --bq-bg: #D8EFD3;
+  --bq-q: var(--secondary);
+  --header:#B0D9B1;
+  --table-grey: var(--bq-bg);
+  --table-caption:var(--secondary);
   --global-fs:15px;
   --global-fs-sm:12px;
+  --global-fs-md:18px;
   --deckgo-highlight-code-font-size:var(--global-fs);
   --bs-code-color:var(--secondary);
   --deckgo-highlight-code-font-family:var(consolas);
-
 }
 html,
 body {
@@ -68,7 +69,7 @@ ol li a:hover{
   max-width: 80%;
 }
 blockquote {
-  background: var(--bq-bg);
+  /* background: var(--bq-bg); */
   margin: 0.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
@@ -76,13 +77,15 @@ blockquote {
 }
 blockquote p {
   color: var(--secondary);
+  text-align: center!important;
+  font-size: var(--global-fs-md);
 }
 blockquote p:before {
   color: var(--bq-q);
   content: open-quote;
   font-size: 3em;
   line-height: 0.1em;
-  margin-right: 0.25em;
+  margin-right: 0.2em;
   vertical-align: -0.4em;
 }
 blockquote p:after {
@@ -128,7 +131,7 @@ table caption {
   font-size: var(--global-fs-sm);
 }
 table thead {
-  color: #333;
+  color: var(--table-caption);
   background: linear-gradient(
     90deg,
     var(--table-grey) 0%,
@@ -141,7 +144,8 @@ table thead tr th {
   padding: 0.4rem;
 }
 table tbody tr:nth-child(2n) {
-  background: var(--table-grey);
+  background: var(--bq-bg);
+  
 }
 table tbody tr td {
   padding: 0.4rem;

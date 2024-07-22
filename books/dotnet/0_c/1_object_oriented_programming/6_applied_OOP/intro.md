@@ -6,14 +6,14 @@ stack: "C#.NET"
 
 ```markdown markmap
 - 🛣️
-  - Identifying classes
-    - Identifying classes from requirements
-    - building entity classes
+  - From requirements 
+    - identifying classes 
+    - building entity
   - Separating Responsibilities
   - Estabilishing Relationships
   - Leveraging Reuse
   - Building Reusable components
-  - Undertanding Interfaces
+  - Plug-n-Play with Interfaces
 ```
 
 ## Terms in Context

@@ -114,7 +114,7 @@ module.exports = {
         excludePaths: ["/"],
         height: 3,
         prependToBody: false,
-        color: `lightcoral`,
+        color: `#55AD9B`,
         footerHeight: 500,
         headerHeight: 0,
       },

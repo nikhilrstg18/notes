@@ -22,7 +22,7 @@ date: "Wed Mar 06 2024 22:16:35 GMT+0530 (India Standard Time)"
 
 ## Architecture of .Net Framework
 
-![.net arch](https://dotnet.microsoft.com/static/images/illustrations/swimlane-architecture-framework.svg)
+![.net arch](./../../src/images/dotnet/fundamentals/b3.png)
 
 2 major components are
 
@@ -116,7 +116,6 @@ So when to compile a .Net application, compiler build 1 or more assemblies, depe
 
 ![Namespace](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuIf8JCvEJ4zLK78iACZ9J4uioSpFKrAevb9GY7OiBaxDJSgfL72CHU4weNATKRakiLorN0wfUIb0qm40)
 
-
 ## Environment Setup
 
 Download and install
@@ -145,12 +144,12 @@ namespace Org.Team.Project
 
 ## Anatomy of .Net App
 
-
 ### namespace
 
 The `namespace` keyword is used to declare a scope that contains a set of related objects. You can use a namespace to organize code elements and to create globally unique types
 
 Within a namespace, you can declare zero or more of the following types:
+
 - class
 - interface
 - struct
@@ -202,7 +201,7 @@ namespace Org.Team.Project
 }
 ```
 
-File scoped namespace declarations enable you to declare that all types in a file are in a single namespace. File scoped namespace declarations are available with C# 10. 
+File scoped namespace declarations enable you to declare that all types in a file are in a single namespace. File scoped namespace declarations are available with C# 10.
 
 ```csharp{1-13}
 using System;
@@ -226,11 +225,11 @@ namespace ANestedNamespace // Not allowed!
    // declarations...
 }
 ```
-> File scoped namespaces can't include additional namespace declarations. 
+
+> File scoped namespaces can't include additional namespace declarations.
 > You cannot declare a nested namespace or a second file-scoped namespace
 
 The compiler adds a default namespace. This unnamed namespace, sometimes referred to as the global namespace, is present in every file. It contains declarations not included in a declared namespace. Any identifier in the global namespace is available for use in a named namespace.
-
 
 ### using directive
 
@@ -252,9 +251,11 @@ namespace Org.Team.Project
     }
 }
 ```
+
 > At the beginning of a source code file, before any namespace or type declarations.
 
 You can also create an alias for a namespace or a type with a using `alias` directive.
+
 ```csharp{3, 11}
 //Program.cs
 
@@ -282,6 +283,7 @@ You can apply two modifiers to a using directive:
 Adding the `global` modifier to a `using directive` means that using is applied to all files in the compilation (typically a project). The global using directive was added in C# 10.
 
 syntax
+
 ```csharp
 global using <FQNS>;
 
@@ -297,6 +299,7 @@ You may add global using directives to any source file. Typically, you'll want t
 
 Usage
 at code level, in single as GlobalUsings.cs at project root level with concise list of frequently used namespaces.
+
 ```csharp
 // vendor, 3th party namespaces
 global using System.IO;
@@ -305,7 +308,7 @@ global using Microsoft.AspNetCore.Hosting;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Hosting;
 
-// your project namesapces 
+// your project namesapces
 global using Org.Team.Project.App;
 global using Org.Team.Project.Infra.Data;
 global using Org.Team.Project.Infra.Data.Contexts;
@@ -324,11 +327,13 @@ You can also globally include a namespace by adding a <Using> item to your proje
 
 The using static directive names a type whose static members and nested types you can access without specifying a type name
 syntax
+
 ```csharp
 using static <FQTN>;
 
 // FQTN is the name of the type whose static members and nested types can be referenced without specifying a type name
 ```
+
 You can access static members of a type without having to qualify the access with the type name
 
 ```csharp{1-2,7-8}
@@ -343,48 +348,4 @@ class Program
         );
     }
 }
-```
-
-```markdown markmap
-# Raodmap
-
-## Fundamentals
-
-Heading 1 text
-
-### Item 1
-
-### Item 2
-
-## Beginner
-
-Heading 2 text
-
-### Item 1
-
-### Item 2
-
-## Intermediate
-
-Heading 3 text
-
-### Item 1
-
-### Item 2
-
-## Advance
-
-Heading 4 text
-
-### Item 1
-
-### Item 2
-
-## Expert
-
-Heading 5 text
-
-### Item 1
-
-### Item 2
 ```

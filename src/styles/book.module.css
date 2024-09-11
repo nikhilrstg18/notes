@@ -19,6 +19,7 @@
   background: var(--table-grey);
   border-radius: 4px;
   padding: 2px 4px;
+  font-size: var(--global-fs);
 }
 .book h2,
 h3,

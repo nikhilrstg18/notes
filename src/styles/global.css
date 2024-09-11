@@ -165,4 +165,9 @@ table tbody tr td {
 }
 p code .language-text{
  background: var(--table-grey);
+ font-size: var(--global-fs);
 }
+
+li .language-text{
+  background: var(--table-grey);
+ }

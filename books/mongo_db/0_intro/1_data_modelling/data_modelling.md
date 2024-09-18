@@ -369,4 +369,4 @@ Properly modeling our data can ensure our database stores information efficientl
 - Documentation: [Model One-to-Many Relationships with References](https://www.mongodb.com/docs/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/)
 - Course: [MongoDB University Data Modeling Course](https://university.mongodb.com/courses/M320/about)
 
-[CheetSheet](https://enterprise.codecademy.com/learn/emodules/emod-introduction-to-mongodb/cheatsheet)
+<a  href="https://enterprise.codecademy.com/learn/emodules/emod-introduction-to-mongodb/cheatsheet" target="_blank">Cheetsheet ↗️</a>

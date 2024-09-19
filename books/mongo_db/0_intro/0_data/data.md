@@ -106,7 +106,7 @@ However, convenience ultimately comes at a price. There are three main drawbacks
 
 Our same JSON object from earlier looks like this in BSON:
 
-```bson
+```
 \x00\x00\x00\x02name\x00\a\x00\x00\x00Rodney\x00\x02occupation\x00\r\x00\x00\x00photographer\x00\x10year_of_experience\x00\a\x00\x00\x00\x00
 ```
 

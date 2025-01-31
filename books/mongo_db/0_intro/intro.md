@@ -23,6 +23,8 @@ Let’s get started!
 
 ## What is MongoDB?
 
+> MongoDB is a document database designed for ease of application development and scaling.
+
 - First released in 2009 and updated regularly with new releases, MongoDB is a database system that allows users to store data using the document model.
 - The document model is a term used to describe a database that primarily stores data in documents and collections.
 - The data stored inside documents is typically stored in hierarchical structures like JSON, BSON, and YAML.
@@ -70,6 +72,21 @@ A third major advantage of using MongoDB is the wide array of cloud tools. These
 [MongoDB Atlas](https://www.mongodb.com/atlas) is MongoDB’s multi-cloud database service. Atlas allows developers to create, manage, and deploy MongoDB databases with just a few clicks. All of the databases are stored in the cloud, and Atlas does not require developers to have MongoDB set up on their computers to use it. Developers can interface with a database using an online dashboard.
 
 [MongoDB Realm](https://www.mongodb.com/docs/realm/introduction) is another cloud offering that helps developers rapidly build various applications that are fully integrated with MongoDB. Potential uses for Realm range from mobile, to internet-of-things, to standard desktop applications. For example, if we were building a mobile app, we could use Realm to create a database on each of the phones that the app is installed on and seamlessly synchronize data between devices and the database. Realm can also facilitate complex tasks like authentication (e.g., login functionality) for us!
+
+### SQL to Mongo mapping of terms/concepts
+
+| **SQL**                                                                       | **MONGO**                                        |
+| ----------------------------------------------------------------------------- | ------------------------------------------------ |
+| database                                                                      | `database`                                       |
+| table                                                                         | `collection`                                     |
+| row                                                                           | `document`/`BSONdocument`                        |
+| table joins                                                                   | `$lookup`                                        |
+| primary key\n Specifiy any unique column or column combination as primary key | `primary key`\n automatically set to `_id` field |
+| aggregation (eg. group by )                                                   | aggregation pipeline                             |
+| SELECT into TABLE                                                             | `$out`                                           |
+| MERGE into TABLE                                                              | `$merge`                                         |
+| UnionAll                                                                      | `$unionWith`                                     |
+| transactions                                                                  | `transactions`                                   |
 
 ## IQ
 

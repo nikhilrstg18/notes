@@ -10,37 +10,49 @@ stack: "MongoDB"
 
 ### What is a Database?
 
-Each time you log into Codecademy.com, you’re met with an abundance of content organized into courses, articles, projects, and more. You can also see a dashboard, customized for you, with shortcuts to your courses and projects. How can the Codecademy site, or any site, retain and retrieve such large amounts of information in an organized and consistent manner? Enter databases!
+In software engineering, databases are systems that store, modify, and access collections of information electronically. To better understand different database classifications and their usefulness to developers, this article will:
 
-In software engineering, databases are systems that store, modify, and access collections of information electronically. To better understand the different database classifications and how they can be useful to us as developers, in this article, we will:
-
-- Discuss why we use databases in software development and their benefits for our end users.
-- Examine the various types of data a database can store.
-- Consider the features, advantages, and disadvantages of the two most common classes of databases: relational and non-relational.
+- **Discuss why we use databases** in software development and their benefits for end users.
+- **Examine the various types of data** a database can store.
+- **Consider the features, advantages, and disadvantages** of the two most common classes of databases: relational and non-relational.
 
 ### Why Databases?
 
-Almost any type of software application needs a way of storing data. Whether it is user account information for social media websites like Twitter or entire user-generated videos on websites like YouTube, databases are a crucial component of any application we use today. Without them, developers would have no way to meaningfully persist information that is important for the application’s functionality. To paint a picture, we can think of a database as a bucket that can store any type of information we want. Here is how most resources on the internet depict a database:
+Almost any type of software application needs a way of storing data. Whether it’s user account information for social media websites like Twitter or entire user-generated videos on platforms like YouTube, **databases** are crucial components of any application we use today. Without them, developers would have no way to meaningfully persist information essential for the application’s functionality.
+
+To paint a picture, we can think of a database as a **bucket** that can store any type of information we want. Here is how most resources on the internet depict a database:
 
 ![Databases](./../../src/images/mongo/a-1.png)
 
-But, how do the applications we use (or build) interact with a database? When we are looking to interact with a database, we are actually looking to interact with a database management system.
+But, how do the applications we use (or build) interact with a database❓
 
-### Database Management Systems (DBMS)
+When we are looking to interact with a database, we are actually looking to interact with a **database management system**.
 
-Suppose a database is a bucket that stores our data. In that case, a DBMS is the software that encapsulates said bucket (our database(s)) and lets us work with the database using a programming language or easy-to-use graphical interface (GUI). Here is the same image from before, but now illustrating how a DBMS fits into the picture:
+### Database Management Systems `DBMS`
+
+Suppose a database is a **bucket** that stores our data. In that case, a `DBMS` is the software that encapsulates said **bucket** (our database(s)) and lets us work with the database using a programming language or easy-to-use graphical interface (GUI). Here is the same image from before, but now illustrating how a `DBMS` fits into the picture:
 
 ![Database Management System (DBMS)](./../../src/images/mongo/a-2.png)
 
 ✏️: _Most information on the internet doesn’t do a great job distinguishing between a database and a DBMS. In this article, when we talk about a database, we also inherently refer to its associated DBMS_.
 
-When working with a DBMS, we won’t only have the ability to store multiple databases but also will be able to capitalize on its unique features for maintaining data. Additionally, each DBMS allows the database it manages to store different types of data. This means we can store a variety of data types such as strings of text, numeric data (integers, decimals, and floating-point numbers), date and time types, and booleans. We can also store more unique data like images and audio files (although it’s worth noting a database transforms all data into binary and won’t natively know its an image or audio file). The ability to store this variety of data allows DBMSs to have a variety of use cases. Whether we need to store simple data like user information (e.g., email, name, password) or more complex data like videos, a DBMS can likely handle it!
+When working with a **Database Management System (DBMS)**, we gain the ability to store multiple databases and leverage its unique features for maintaining data. Each `DBMS` allows the storage of various data types, including:
 
-Since each DBMS is unique, they vary in their implementation and, as such, provide different advantages and disadvantages. Let’s get familiar with two of the most common types of databases (and their associated DBMS) we’re likely to encounter and examine the greatest distinctions in how they store data and operate.
+- **Strings of text**
+- **Numeric data** (integers, decimals, floating-point numbers)
+- **Date and time types**
+- **Booleans**
+- **Unique data** like images and audio files (though all data is transformed into binary)
+
+This versatility enables `DBMS`s to support a wide range of use cases, from storing simple user information (e.g., email, name, password) to more complex data like videos.
+
+Since each `DBMS` is unique, they offer different advantages and disadvantages. Let's explore two of the most common types of databases and their associated `DBMS`s, focusing on the key distinctions in how they store data and operate.
 
 ### Relational Databases
 
-One of the most common classes of databases is a relational database. Relational databases, commonly referred to as SQL databases (more on this later), structure data in tabular form. This means data is grouped into tables, using rows and columns to organize and store individual records of data. Here is what the general structure looks like:
+One of the most common classes of databases is the **relational database**, often referred to as **SQL databases**. These databases structure data in a **tabular form**, meaning data is organized into tables with rows and columns. Each table stores individual records of data, making it easy to manage and query information efficiently. 
+
+Here is what the general structure looks like:
 
 ![Album table](./../../src/images/mongo/a-3.png)
 
@@ -73,49 +85,35 @@ Lastly, note the following important properties of relational databases:
 
 ### Non-Relational Databases
 
-The second most common class of databases is non-relational databases. A non-relational database, commonly referred to as a NoSQL database, is any database that does not follow the relational model. This means these types of databases typically don’t store data in tables, but more importantly, data isn’t strictly represented with relationships. Under the umbrella of non-relational databases are many different types of databases, each with its own framework for organizing data. Some examples are [document databases](https://en.wikipedia.org/wiki/Document-oriented_database), [graph databases](https://en.wikipedia.org/wiki/Graph_database), and [key-value databases](https://en.wikipedia.org/wiki/Key%E2%80%93value_database). Collectively, non-relational databases specialize in storing unstructured data that doesn’t fit neatly into rows and columns.
+The second most common class of databases is **non-relational databases**, commonly referred to as **NoSQL databases**. These databases do not follow the relational model, meaning they typically don’t store data in tables, and data isn’t strictly represented with relationships. Under the umbrella of non-relational databases, there are many different types, each with its own framework for organizing data. Some examples include:
 
-To visualize the difference, let’s return to our music database and examine what the data would look like in a NoSQL format. Here is the same database but stored inside of a document database - a special category of NoSQL database where data is stored as JSON:
+- [**Document databases**]((https://en.wikipedia.org/wiki/Document-oriented_database))
+- [**Graph databases**](https://en.wikipedia.org/wiki/Graph_database)
+- [**Key-value databases**](https://en.wikipedia.org/wiki/Key%E2%80%93value_database)
+
+Collectively, non-relational databases specialize in storing unstructured data that doesn’t fit neatly into rows and columns.
+
+To visualize the difference, let’s return to our music database and examine what the data would look like in a NoSQL format. Here is the same database but stored inside a document database, a special category of NoSQL database where data is stored as JSON:
 
 ![JSON format](./../../src/images/mongo/a-7.png)
 
 Additionally, note the following properties of non-relational databases:
 
-- **Flexibility and Scalability**: Non-relational database’s unstructured nature facilitates the design of flexible schemas (schemas that do not need to be defined beforehand) and makes these types of databases highly adaptable to the changing needs of an application. Additionally, non-relational databases are well suited for expansion or scalability and are relatively inexpensive to maintain compared to relational databases.
+- **Flexibility and Scalability**: The unstructured nature of non-relational databases facilitates the design of flexible schemas (schemas that do not need to be defined beforehand) and makes these types of databases highly adaptable to the changing needs of an application. They are also well-suited for expansion or scalability and are relatively inexpensive to maintain compared to relational databases.
 
 - **Custom Query Language**: Unlike relational databases that all use SQL as a standard query language, most NoSQL databases have their own custom language.
 
-- **Unique Disadvantages**: Since the data in non-relational databases is mainly unstructured, data can often become hard to maintain and keep track of. Additionally, since every NoSQL database uses its own custom query language, there is a new learning curve for each one we choose to work with.
-
-### Summary
-
-**Databases**
-
-- Databases are systems that store, modify, and access structured collections of information electronically.
-- Database Management Systems (DBMS) allow developers to communicate via code or a graphical user interface with a database.
-- Databases can store a wide range of data types, including text, numbers, dates and times, and files of various types.
-
-**Relational Databases**
-
-- Relational databases, a common database class, organize data into tables of rows and columns of information and rely on relationships to organize data.
-- A relational database schema is typically pre-defined before data is entered.
-- All relational databases use SQL to allow developers to communicate with the database using a common language.
-- Relational databases can be costly to set up and scale. - Performance and cost are big factors in using a relational database in an application.
-
-**Non-Relational Databases**
-
-- Non-relational databases, another common database class, refer to any database that does not follow the relational model.
-- Non-relational databases typically have a more flexible schema and are more easily scaled than relational databases. However, the unstructured nature of the data can make it difficult to maintain, and each non-relational database has its own query language.
+- **Unique Disadvantages**: Since the data in non-relational databases is mainly unstructured, it can often become hard to maintain and keep track of. Additionally, since every NoSQL database uses its own custom query language, there is a new learning curve for each one we choose to work with.
 
 ## Intro to NoSQL
 
-In the world of databases, there are many different ways to organize and store data. At this point, we are familiar with the concept of relational databases that store data in rows, form relationships between the tables, and query the data using SQL. However, a new type of database, NoSQL, started to rise in popularity in the early 21st century.
+In the world of databases, there are many different ways to organize and store data. We are already familiar with relational databases, which store data in rows, form relationships between tables, and use SQL for querying. However, a new type of database, **NoSQL**, began to rise in popularity in the early 21st century.
 
-NoSQL is short for “not-only SQL”, but is also commonly called “non-relational” or “non-SQL”. Any database technology that stores data differently from relational databases can be categorized as a NoSQL database. To get a good grasp on NoSQL, in this article, we will:
+**NoSQL** stands for "not-only SQL" and is also commonly referred to as "non-relational" or "non-SQL". Any database technology that stores data differently from relational databases can be categorized as a NoSQL database. To get a good grasp on NoSQL, this article will:
 
-- Cover a brief overview of how we arrived at NoSQL technology.
-- Examine some of the distinct reasons to choose or not choose a NoSQL database.
-- Explore common types of NoSQL databases and how each type structures data.
+- **Cover a brief overview** of how we arrived at NoSQL technology.
+- **Examine distinct reasons** to choose or not choose a NoSQL database.
+- **Explore common types** of NoSQL databases and how each type structures data.
 
 Let’s dive in!
 
@@ -204,42 +202,77 @@ Amazon’s [Redshift](https://aws.amazon.com/redshift/) is a popular option for 
 
 ### Summary
 
-- NoSQL stands for “not-only SQL” (also called “non-relational”, or “non-SQL”) and refers to any database that stores data in any format other than relational tables.
-- NoSQL database technology grew in popularity due to datasets growing in size and complexity.
-- NoSQL databases may provide flexibility, scalability, and speed advantages.
-- NoSQL databases experience disadvantages such as lack of data integrity and lack of language standardization across different NoSQL databases.
-- Common types of NoSQL databases include key-value, document, graph, and column-oriented.
+**Databases**
+- Systems that store, modify, and access structured collections of information electronically.
+- Database Management Systems (DBMS) allow developers to interact with databases via code or a graphical user interface.
+- Can store a wide range of data types, including text, numbers, dates, times, and various file types.
 
-Next time a project requires a database, consider the tradeoffs between a relational and a NoSQL database and pick one that best suits your use case!
+**Relational Databases**
+- Organize data into tables with rows and columns, relying on relationships to structure data.
+- Typically use a pre-defined schema before data entry.
+- Use SQL for querying and managing data.
+- Can be costly to set up and scale, with performance and cost being significant factors.
+
+**Non-Relational Databases (NoSQL)**
+- Do not follow the relational model and typically have a more flexible schema.
+- Include various types such as key-value, document, graph, and column-oriented databases.
+- Grew in popularity due to the increasing size and complexity of datasets.
+- Offer flexibility, scalability, and speed advantages but may lack data integrity and standardization across different NoSQL databases.
+- Use custom query languages, leading to a learning curve for each type.
+
+**Relational Database Relationship Types**
+- **One-to-One**: Each record in one table is linked to one record in another table (e.g., book and its ISBN).
+- **One-to-Many**: One record in a table is linked to multiple records in another table (e.g., publisher and books).
+- **Many-to-Many**: Multiple records in one table are linked to multiple records in another table (e.g., books and authors).
+
+**Document-based NoSQL Database**
+- Stores data as objects in formats like JSON, YAML, or XML.
+
+**Key-Value NoSQL Database**
+- Uses records consisting of a key (name) and a value (data).
+
+**Relational Database: Predefined Schema**
+- Follows predefined schemas where tables and relationships are outlined before data insertion.
+
+When choosing a database for a project, consider the trade-offs between relational and NoSQL databases to select the one that best suits your use case.
 
 ## IQ
 
-**NoSQL Databases**
+### General Database Concepts:
 
-A NoSQL database is a type of database which uses different data models than the traditional relational model used with SQL.
+- What is a database and why are they important in software development❓
+- What is the difference between a database and a Database Management System (DBMS)❓
+- What types of data can a DBMS store❓
 
-**Relational Database Relationship Types**
+### Relational Databases (SQL):
 
-Relational databases represent data in terms of its relationship to other data. These types of databases organize data into tables and establish relationships between them. The most common types of relationships between tables are: “one-to-one”, “one-to-many”, and “many-to-many”.
+- What is a relational database and how does it organize data❓
+- What are the key properties of a relational database❓
+Can you explain the different types of relationships in a relational database (e.g., one-to-one, one-to-many, many-to-many)❓
+- What is a database schema, and why is it important in relational databases❓
+- What are some disadvantages of relational databases, particularly in enterprise-level applications❓
+- What is an RDBMS and which popular systems are examples of it❓
+How does SQL interact with relational databases❓
 
-Let’s use books to illustrate examples of database relationships:
+### Non-Relational Databases (NoSQL):
 
-- The relationship between a book and it’s ISBN number can be represented as a “one-to-one” relationship. Each book has one ISBN number, and each ISBN number belongs to one book.
-- The relationship between publisher and book titles can be represented as a “one-to-many” relationship. Each publisher has published many books but each book can only be released by one publisher.
-- The relationship between book titles and authors can be represented as “many-to-many”. Each author may have written many books and each book can have multiple authors.
+- What is a non-relational (NoSQL) database, and how does it differ from relational databases❓
+- What are some common types of NoSQL databases and how do they store data❓
+- Why might a developer choose a NoSQL database over a relational database❓
+- Can you explain the flexibility and scalability benefits of NoSQL databases❓
+- What are some disadvantages of NoSQL databases, particularly regarding data integrity and language standardization❓
+- What is the BASE principle in NoSQL databases, and how does it differ from the ACID principle in relational databases❓
 
-**Document-based NoSQL Database**
+### NoSQL Types and Use Cases:
 
-A document-based NoSQL database stores objects which contain data in standard encodings such as JSON, YAML, or XML.
+- What is a key-value NoSQL database, and in what scenarios might it be most useful❓
+- What is a document-based NoSQL database, and how does it store data❓
+- What is a graph database, and how does it represent data relationships❓
+- How does a column-oriented NoSQL database differ from a row-oriented relational database❓
 
-**Key-Value NoSQL Database**
+### Choosing Between SQL and NoSQL:
 
-A key-value NoSQL database uses individual records consisting of:
-- Name, which is the key
-- Data, which is the value
+- In what scenarios would you recommend using a relational database versus a non-relational database❓
+- What are the performance and cost considerations when choosing between SQL and NoSQL databases❓
+- What factors influence the decision to use SQL or NoSQL for a large-scale application❓
 
-The data is assigned to a name when stored.
-
-**Relation Database: Predefined Schema**
-
-Relational databases typically follow predefined schemas. Developers outline the tables and their associated relationships before inserting any data.

@@ -4,7 +4,42 @@ slug: "mongo_db/0_intro/1_data_modelling"
 stack: "MongoDB"
 ---
 
-> how MongoDB creates relationships between data!
+> In MongoDB, [database](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-database) stores one or more collections of [documents](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-document).
+
+❓ **To select a database to use** issue the `use <db>` statement
+
+```py
+use myDB
+```
+
+❓ **To create a database**
+- If a database does not exist, MongoDB creates the database when you first store data for that database. As such, you can switch to a non-existent database and perform the following operation in mongosh:
+
+```py
+use myNewDB
+
+db.myNewCollection1.insertOne( { x: 1 } )
+```
+✏️: Be sure that both the database and collection names follow MongoDB [Naming Restrictions](https://www.mongodb.com/docs/manual/reference/limits/#std-label-restrictions-on-db-names).
+
+> MongoDB stores data records as [documents](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-document) (specifically [BSON documents](https://www.mongodb.com/docs/manual/core/document/#std-label-bson-document-format)) which are gathered together in [collections](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-collection) in a [database](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-database). 
+
+![Collections](https://www.mongodb.com/docs/manual/images/crud-annotated-collection.bakedsvg.svg)
+
+❓ **To create a collection implicitly**
+
+If a collection does not exist, MongoDB creates the collection when you first store data for that collection.
+
+```py
+db.myNewCollection2.insertOne( { x: 1 } )
+db.myNewCollection3.createIndex( { y: 1 } )
+```
+Both the `insertOne()` and the `createIndex()` operations create their respective collection if they do not already exist
+
+❓ **To create a collection explicitly**
+
+MongoDB provides the `db.createCollection()` method to explicitly create a collection with various options, such as setting the maximum size or the documentation validation rules. If you are not specifying these options, you do not need to explicitly create the collection since MongoDB creates new collections when you first store data for the collections.
+
 
 ## Intro
 
@@ -370,3 +405,36 @@ Properly modeling our data can ensure our database stores information efficientl
 - Course: [MongoDB University Data Modeling Course](https://university.mongodb.com/courses/M320/about)
 
 <a  href="https://enterprise.codecademy.com/learn/emodules/emod-introduction-to-mongodb/cheatsheet" target="_blank">Cheetsheet ↗️</a>
+
+
+**❓**
+
+**How Data is Stored in MongoDB:**
+
+1. What is a document in MongoDB?
+2. What is a collection in MongoDB, and how does it differ from a document?
+3. How is data organized in a MongoDB database?
+4. Can you explain the structure of a MongoDB database?
+5. What are some advantages of using JSON for data storage in MongoDB?
+6. What are the drawbacks of JSON as a data storage format in MongoDB?
+7. What is BSON, and how does it differ from JSON?
+8. Why does MongoDB use BSON internally instead of JSON?
+9. What are the primary advantages of BSON over JSON?
+10. Can you explain the relationship between JSON and BSON in MongoDB?
+
+**How MongoDB Creates Relationships Between Data:**
+
+1. What is data modeling, and why is it important in MongoDB?
+2. How does MongoDB differ from relational databases in terms of data organization?
+3. Can you explain the two fundamental ways to represent relationships between data in MongoDB?
+4. What is an embedded document in MongoDB, and when would you use one?
+5. What is a reference in MongoDB, and how does it differ from an embedded document?
+6. What is the difference between a normalized and denormalized data model?
+7. In which scenarios would you use an embedded document in MongoDB?
+8. In which scenarios would you use references in MongoDB?
+9. What are the pros and cons of using embedded documents vs. references in MongoDB?
+10. Can you describe a one-to-one, one-to-many, and many-to-many relationship in MongoDB and how to model them?
+11. In what situations would you prefer a denormalized data model over a normalized one in MongoDB?
+12. How does MongoDB handle many-to-many relationships using references?
+13. Can you provide examples of use cases where embedded documents are more suitable than references?
+14. When is it better to use references instead of embedded documents for data relationships in MongoDB?

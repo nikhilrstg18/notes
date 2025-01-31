@@ -4,6 +4,22 @@ slug: "mongo_db/1_querying/1_insert_&_update"
 stack: "MongoDB"
 ---
 
+| Method                     | Description                                      |
+| -------------------------- | ------------------------------------------------ |
+| db.collection.InsertOne()  | Inserts a single `document` into a collection    |
+| db.collection.InsertMany() | Inserts a multiple `documents` into a collection |
+
+**Additional methods for inserts**
+
+| Method                                                      | Description                                      |
+| ----------------------------------------------------------- | ------------------------------------------------ |
+| db.collection.updateOne() with option {upsert:true}         | Inserts a single `document` into a collection    |
+| db.collection.updateMany() with option {upsert:true}        | Inserts a multiple `documents` into a collection |
+| db.collection.findAndModify() with option {upsert:true}     | Inserts a multiple `documents` into a collection |
+| db.collection.findOneAndUpdate() with option {upsert:true}  | Inserts a multiple `documents` into a collection |
+| db.collection.findOneAndReplace() with option {upsert:true} | Inserts a multiple `documents` into a collection |
+| db.collection.bulkWrite() with option {upsert:true}         | Inserts a multiple `documents` into a collection |
+
 ## The `_id` Field
 
 By this point, we’ve learned the fundamentals of querying data in MongoDB. In this lesson, we’ll learn how to insert new documents, and update existing ones.

@@ -10,7 +10,35 @@ First off, you need to open your HTML editor, where you will find a clean white 
 
 From there you need to layout your page with the following tags.
 
-![Basic HTML5 Structure](../../../src/images/html/a3.png)
+  <div>Basic HTML Structure</div><br/>
+  <div style="border: 2px solid #333; padding:8px 12px;margin :0 auto; width:70%">
+   &lt;html&gt;
+  <div style="border: 2px solid #55ad9b; padding:8px 12px; margin :8px 0; ">
+    &lt;head&gt;
+      <div style="border: 2px solid grey; padding:8px 12px; margin :8px 0; ">
+      <div style="border: 2px solid #55ad9b; padding:8px 12px; margin :8px 0; ">
+      &lt;title&gt;This is your title&lt;/title&gt;
+      </div>
+      <div style="border: 2px solid #55ad9b; padding:8px 12px; margin :8px 0; ">
+      &lt;meta charset="UTF-8" /&gt;
+      </div>
+  </div>
+    &lt;/head&gt;
+  </div>
+  <div style="border: 2px solid #55ad9b; padding:8px 12px;margin :8px 0; ">
+    &lt;body&gt;
+    <div style="border: 2px solid grey; padding:8px 12px;margin :8px 0; ">
+  <div style="border: 2px solid #55ad9b;padding:8px 12px;margin :8px 0; ">
+    &lt;h1&gt;This your heading&lt;/h1&gt;
+  </div>
+  <div style="border: 2px solid #55ad9b;padding:8px 12px;margin :8px 0; ">
+   &lt;p&gt;This is your paragraph&lt;/p&gt;
+  </div>
+  </div>
+    &lt;/body&gt;
+  </div>
+  &lt;/html&gt;
+  </div>
 
 ### Basic Construction of an HTML Page
 
@@ -18,9 +46,8 @@ From there you need to layout your page with the following tags.
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>This is your title</title>
     <meta charset="UTF-8" />
-    <meta name="author" content="Nikhil Rustagi" />
   </head>
   <body>
     <h1>This is your header</h1>
@@ -107,5 +134,3 @@ These tags should be placed underneath each other at the top of every HTML page 
 - Next, we will make `<body>` tag.
 - The HTML `<body>` is where we add the content which is designed for viewing by human eyes.
 - This includes text, images, tables, forms and everything else that we see on the internet each day.
-
-## Adding Forms in html page

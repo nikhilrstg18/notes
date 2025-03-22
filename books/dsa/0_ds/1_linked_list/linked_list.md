@@ -6,6 +6,8 @@ stack: "DSA"
 
 ## Linked List
 
+> Linked List aka **Singly Linked List**
+
 ![Linked List](./../../../../src/images/dsa/n-3.png)
 
 Linked lists are one of the basic data structures used in computer science. They have many direct applications and serve as the foundation for more complex data structures.
@@ -25,46 +27,6 @@ Common operations on a linked list may include:
 
 Linked lists typically contain unidirectional links (next node), but some implementations make use of bidirectional links (next and previous nodes).
 
-### Concept
-
-![Linked List Concept](./../../../../src/images/dsa/n-4.png)
-
-As an example, we added values to the linked list diagram from the introduction.
-
-This linked list contains three nodes (`node_a`, `node_b`, and `node_c`).
-
-Each node in this particular list contains a string as its data. As the sequence is defined, the order is "cats", "dogs", and "birds".
-
-The list ends at `node_c`, since the link within that node is set to `null`.
-
-❓**What links would need to be established to add a new head node to this list**
-
-❓**What about the tail?**
-
-### Adding and Removing Nodes
-
-With linked lists, because nodes are linked to from only one other node, you can’t just go adding and removing nodes willy-nilly without doing a bit of maintenance.
-
-Adding a new node
-Adding a new node to the beginning of the list requires you to link your new node to the current head node. This way, you maintain your connection with the following nodes in the list.
-
-Removing a node
-If you accidentally remove the single link to a node, that node’s data and any following nodes could be lost to your application, leaving you with orphaned nodes.
-
-To properly maintain the list when removing a node from the middle of a linked list, you need to be sure to adjust the link on the previous node so that it points to the following node.
-
-Depending on the language, nodes which are not referenced are removed automatically. “Removing” a node is equivalent to removing all references to the node.
-
-![Add and Remove Node](./../../../../src/images/dsa/n-5.png)
-
-Look at the image to see the proper manner of removing a node.
-In order to remove `node_b`, you must first link `node_a` to `node_c` (where `node_b` was linking).
-Then you can remove `node_b`.
-
-❓**How would you represent the process of adding a new node to the beginning of a linked list**
-
-### Review
-
 Linked Lists:
 
 - Are comprised of nodes
@@ -75,9 +37,7 @@ Linked Lists:
 - Require some maintenance in order to add or remove nodes
 - The methods we used are an example and depend on the exact use case and/or programming language being used
 
-## Linked List in JS
-
-### Constructor and Adding to Head
+## Constructor
 
 Let’s implement a linked list in JavaScript. As you might recall, a linked list is a sequential chain of nodes. Remember that a node contains two elements:
 
@@ -141,29 +101,15 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-2. Define an `.addToHead()` method that takes one parameter called `data`. Inside the method, create a `Node` const variable named `newHead`, and pass `data` as an argument.
+## Add To Head
 
-```js{9-11}
-//linkedlist.js
-const Node = require("./Node");
+![Add to Head](./../../../../src/images/dsa/n-6.png)
 
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
+1. Define an `.addToHead()` method that takes one parameter called `data`. Inside the method, create a `Node` const variable named `newHead`, and pass `data` as an argument.
+2. Inside your `.addToHead()` method, create a `const` variable named `currentHead`, and set it equal to the list’s head. Then change the list’s head to equal `newHead`.
+3. Finally, still in your `.addToHead()` method, check if there is a current head to the list. If there is, set the list’s head’s next node to `currentHead`.
 
-  addToHead(data) {
-    const newHead = new Node(data);
-  }
-}
-
-module.exports = LinkedList;
-```
-
-3. Inside your `.addToHead()` method, create a `const` variable named `currentHead`, and set it equal to the list’s head. Then change the list’s head to equal `newHead`.
-4. Finally, still in your `.addToHead()` method, check if there is a current head to the list. If there is, set the list’s head’s next node to `currentHead`.
-
-```js{11-15}
+```js{5-7, 9-16}
 //linkedlist.js
 const Node = require("./Node");
 
@@ -185,128 +131,23 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-### Adding to Tail
+## Add To Tail
 
 Now that we can add to the head of the linked list, the next step is to be able to add to the tail. This will require a few more steps since we don’t have a `tail` property in our linked list data structure.
 
 To do this, we are going to start with a temporary tail variable that will be set equal to the list’s head. If there is no head, that means that the list is empty, and we will add the node to the head of the list. Otherwise, we will iterate through the list until we find the last node. Once we’ve found the current tail, we will add a pointer from that node to our new tail.
 
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-}
-
-module.exports = LinkedList;
-```
+![Add to Tail](./../../../../src/images/dsa/n-7.png)
 
 1. Define an `.addToTail()` method for the `LinkedList` that has one parameter called `data`. Create a variable named `tail`, and set it equal to the list’s head. `tail` is going to change throughout the method, so make it a `let` variable.
 
-```js{17-19}
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-  addToTail(data) {
-    let tail = this.head;
-  }
-}
-
-module.exports = LinkedList;
-```
-
 2. Now that `tail` is equal to the head of the list, we want to check if it has any value. If `tail` has no value, then that means the list was empty, and we will be creating the head and `tail` with the `data` passed in. To do this, check if `tail` has no value. If so, set the list’s head equal to a new `Node` that takes `data` as an argument.
-
-```js{19-21}
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    }
-  }
-}
-
-module.exports = LinkedList;
-```
 
 3. If `tail` does have a value, that means the list is not empty. In that case, we want to iterate through the list until we find the end, so we can add `tail` to the end of the list. To do this, create an else after your if statement. Inside it, make a while loop that runs while `tail` has a next node. Inside the loop, set `tail` equal to its next node. (If you accidentally create an infinite loop and your code won’t stop running, you can reload the page to stop it.)
 
-```js{21-25}
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-    }
-  }
-}
-
-module.exports = LinkedList;
-```
-
 4. Finally, inside the same `else` block, but outside the `while` loop, set `tail‘s` next node equal to a new `Node` that takes `data` as an argument.
 
-```js{25}
+```js{17-25}
 // linkedlist.js
 const Node = require("./Node");
 
@@ -339,17 +180,94 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-### Removing the Head
+## Add By Position
 
-So far we can:
+To insert a node at a specific position, traverse the list to the desired position, link the new node to the next node, and update the links accordingly.
 
-- create a new `LinkedList` using its `constructor`
-- add to the head of the list using `.addToHead()`
-- add to the tail of the list using `.addToTail()`
+![Add At Position](./../../../../src/images/dsa/n-7.1.png)
+
+1. Create a new node and assign it a value.
+2. If inserting at the beginning (position = 1):
+
+- Point the new node’s next to the current head.
+- Update the head to the new node.
+- Return (Insertion done).
+
+6. Otherwise, traverse the list:
+
+- Start from the head and move to the (position - 1)ᵗʰ node (just before the desired position).
+- If the position is beyond the list length, return an error or append at the end.
+
+9. Insert the new node:
+
+- Point the new node’s next to the next node of the current position.
+- Update the previous node’s next to the new node.
+  Return the updated list.
+
+```js{28-46}
+// linkedlist.js
+const Node = require("./Node");
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addToHead(data) {
+    const newHead = new Node(data);
+    const currentHead = this.head;
+    this.head = newHead;
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
+  }
+  addToTail(data) {
+    let tail = this.head;
+    if (!tail) {
+      this.head = new Node(data);
+    } else {
+      while (tail.getNextNode() !== null) {
+        tail = tail.getNextNode();
+      }
+      tail.setNextNode(new Node(data));
+    }
+  }
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
+    }
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
+    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
+  }
+}
+
+module.exports = LinkedList;
+```
+
+## Remove Head
 
 Now we’re going to learn how to remove from the head of the list. To do this, we are first going to check to see if the list has a head. If it doesn’t, there is nothing to return. If there is a head, we will remove it by setting the list’s head equal to the original head’s next node, and then return that original head.
 
-```js
+![RemoveHead](./../../../../src/images/dsa/n-8.png)
+
+1. Define a `.removeHead()` method that takes no parameters. Inside the method, create a **const** variable named `removedHead` and set it equal to the list’s head. We will use this to keep track of the original head of the list.
+2. If `removedHead` has no value, return to end execution of the `.removeHead()` method.
+3. Outside the if statement, set the list’s head equal to `removedHead`'s next node.
+4. Finally, return `removedHead`’s data.
+
+```js{48-55}
 // linkedlist.js
 const Node = require("./Node");
 
@@ -378,165 +296,24 @@ class LinkedList {
       tail.setNextNode(new Node(data));
     }
   }
-}
-
-module.exports = LinkedList;
-```
-
-1. Define a `.removeHead()` method that takes no parameters. Inside the method, create a `const` variable named `removedHead` and set it equal to the list’s head. We will use this to keep track of the original head of the list.
-
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
     }
-  }
-
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-      tail.setNextNode(new Node(data));
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
     }
-  }
-  removeHead() {
-    const removedHead = this.head;
-  }
-}
-
-module.exports = LinkedList;
-```
-
-2. If removedHead has no value, return to end execution of the .removeHead() method.
-
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-      tail.setNextNode(new Node(data));
-    }
-  }
-  removeHead() {
-    const removedHead = this.head;
-    if (!removedHead) {
-      return;
-    }
-  }
-}
-
-module.exports = LinkedList;
-```
-
-3. Outside the if statement, set the list’s head equal to removedHead‘s next node.
-
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-      tail.setNextNode(new Node(data));
-    }
-  }
-  removeHead() {
-    const removedHead = this.head;
-    if (!removedHead) {
-      return;
-    }
-    this.head = removedHead.getNextNode();
-  }
-}
-
-module.exports = LinkedList;
-```
-
-4. Finally, return removedHead’s data.
-
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-      tail.setNextNode(new Node(data));
-    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
   }
   removeHead() {
     const removedHead = this.head;
@@ -551,7 +328,353 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-### Printing
+## Remove Tail
+
+Now we’re going to learn how to remove from the tail of the list. To do this, we are first going to check to see if the list has a tail. If it doesn’t, there is nothing to return. If there is a tail, we will remove it by setting the list’s tail equal to the original tail’s next node, and then return that original tail.
+
+![RemoveHead](./../../../../src/images/dsa/n-9.png)
+
+1. Define a `.removeTail()` method that takes head parameters. Inside the method, If the list is empty, return null
+2. If the list has only one node, delete it and return null
+3. Find the second last node.
+4. Delete the last node.
+5. return head
+
+```js{55-68}
+// linkedlist.js
+const Node = require("./Node");
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addToHead(data) {
+    const newHead = new Node(data);
+    const currentHead = this.head;
+    this.head = newHead;
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
+  }
+  addToTail(data) {
+    let tail = this.head;
+    if (!tail) {
+      this.head = new Node(data);
+    } else {
+      while (tail.getNextNode() !== null) {
+        tail = tail.getNextNode();
+      }
+      tail.setNextNode(new Node(data));
+    }
+  }
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
+    }
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
+    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
+  }
+  removeHead() {
+    const removedHead = this.head;
+    if (!removedHead) {
+      return;
+    }
+    this.head = removedHead.getNextNode();
+    return removedHead.data;
+  }
+  removeTail() {
+    if (!this.head) {
+        return null;
+    }
+    if (!this.head.next) {
+        return null;
+    }
+    let secondLast = this.head;
+    while (secondLast.next.next) {
+        secondLast = secondLast.next;
+    }
+    secondLast.next = null;
+    return this.head;
+  }
+}
+
+module.exports = LinkedList;
+```
+
+## Remove By Position
+
+To delete a node at a specific position, traverse the list to the desired position, update the links to bypass the node to be deleted.
+
+![RemoveAt](./../../../../src/images/dsa/n-9.1.png)
+
+1. If list is empty (`head` == `NULL`), returns the `head`.
+2. If the position to delete is 1 (the `head` node):
+
+- Update `head` = `temp`->`next`
+
+3. Traverse the list until reaching the desired position:
+
+- Initialize `prev` to keep track of the `previous` node.
+- Move `temp` through the list until the position is reached.
+
+4. Check for Valid Position:
+
+- If `temp` becomes `NULL`, it means the position exceeds the number of nodes in the list. Print a message and return the head.
+
+5. If the node to delete is found:
+
+- Set `prev`->`next` to `temp`->`next`, effectively skipping over the node to be deleted.
+
+```js{69-90}
+// linkedlist.js
+const Node = require("./Node");
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addToHead(data) {
+    const newHead = new Node(data);
+    const currentHead = this.head;
+    this.head = newHead;
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
+  }
+  addToTail(data) {
+    let tail = this.head;
+    if (!tail) {
+      this.head = new Node(data);
+    } else {
+      while (tail.getNextNode() !== null) {
+        tail = tail.getNextNode();
+      }
+      tail.setNextNode(new Node(data));
+    }
+  }
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
+    }
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
+    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
+  }
+  removeHead() {
+    const removedHead = this.head;
+    if (!removedHead) {
+      return;
+    }
+    this.head = removedHead.getNextNode();
+    return removedHead.data;
+  }
+  removeTail() {
+    if (!this.head) {
+        return null;
+    }
+    if (!this.head.next) {
+        return null;
+    }
+    let secondLast = this.head;
+    while (secondLast.next.next) {
+        secondLast = secondLast.next;
+    }
+    secondLast.next = null;
+    return this.head;
+  }
+  removeAt(pos)
+  {
+    let temp = this.head;
+    let prev = null;
+    if (temp === null)
+        return this.head;
+    if (pos === 1) {
+        this.head = temp.next;
+        return this.head;
+    }
+    for (let i = 1; temp !== null && i < pos; i++) {
+        prev = temp;
+        temp = temp.next;
+    }
+    if (temp !== null) {
+        prev.next = temp.next;
+    }
+    else {
+        console.log("Data not present");-
+    }
+    return this.head;
+  }
+}
+
+module.exports = LinkedList;
+```
+
+## Reverse
+
+to reverse the linked list by changing the links between nodes
+
+- Input Linked list having 4 nodes
+  ![Iterative Reverse -1](./../../../../src/images/dsa/n-10.png)
+- Initialize prev pointer = null
+- Store next = curr.next
+- update curr.next = prev
+  ![Iterative Reverse -2](./../../../../src/images/dsa/n-10.1.png)
+
+3.
+
+- Update prev = curr and curr = next
+- Store next node 3 as next
+- update next pointer of current node 2 to prev node 1
+  ![Iterative Reverse -3](./../../../../src/images/dsa/n-10.2.png)
+- Update prev = curr and curr = next
+- Store next node 4 as next
+- Update next pointer of current node 3 to prev node 2
+  ![Iterative Reverse -4](./../../../../src/images/dsa/n-10.3.png)
+
+- Update prev = curr and curr = next
+- next pointer points to null
+- Update next pointer of current node 4 to prev node 3
+  ![Iterative Reverse -5](./../../../../src/images/dsa/n-10.4.png)
+
+- Update prev = curr and curr = next
+- Finally, curr becomes null and prec stoeres the head of current linked list
+
+  ![Iterative Reverse -6](./../../../../src/images/dsa/n-10.5.png)
+
+```js{91-102}
+// linkedlist.js
+const Node = require("./Node");
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addToHead(data) {
+    const newHead = new Node(data);
+    const currentHead = this.head;
+    this.head = newHead;
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
+  }
+  addToTail(data) {
+    let tail = this.head;
+    if (!tail) {
+      this.head = new Node(data);
+    } else {
+      while (tail.getNextNode() !== null) {
+        tail = tail.getNextNode();
+      }
+      tail.setNextNode(new Node(data));
+    }
+  }
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
+    }
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
+    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
+  }
+  removeHead() {
+    const removedHead = this.head;
+    if (!removedHead) {
+      return;
+    }
+    this.head = removedHead.getNextNode();
+    return removedHead.data;
+  }
+  removeTail() {
+    if (!this.head) {
+        return null;
+    }
+    if (!this.head.next) {
+        return null;
+    }
+    let secondLast = this.head;
+    while (secondLast.next.next) {
+        secondLast = secondLast.next;
+    }
+    secondLast.next = null;
+    return this.head;
+  }
+  removeAt(pos)
+  {
+    let temp = this.head;
+    let prev = null;
+    if (temp === null)
+        return this.head;
+    if (pos === 1) {
+        this.head = temp.next;
+        return this.head;
+    }
+    for (let i = 1; temp !== null && i < pos; i++) {
+        prev = temp;
+        temp = temp.next;
+    }
+    if (temp !== null) {
+        prev.next = temp.next;
+    }
+    else {
+        console.log("Data not present");
+    }
+    return this.head;
+  }
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+    let next;
+    while (curr !== null) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+  }
+}
+
+module.exports = LinkedList;
+```
+
+## Printing
 
 Nice! Now we have a bunch of helpful LinkedList methods under our belt. Our next step is to create a .printList() method so we can see our list as it changes.
 
@@ -566,51 +689,6 @@ For example, if we had a list for the days of the week, starting with Sunday, .p
 
 ```
 
-Given
-
-```js
-// linkedlist.js
-const Node = require("./Node");
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  addToHead(data) {
-    const newHead = new Node(data);
-    const currentHead = this.head;
-    this.head = newHead;
-    if (currentHead) {
-      this.head.setNextNode(currentHead);
-    }
-  }
-
-  addToTail(data) {
-    let tail = this.head;
-    if (!tail) {
-      this.head = new Node(data);
-    } else {
-      while (tail.getNextNode() !== null) {
-        tail = tail.getNextNode();
-      }
-      tail.setNextNode(new Node(data));
-    }
-  }
-
-  removeHead() {
-    const removedHead = this.head;
-    if (!removedHead) {
-      return;
-    }
-    this.head = removedHead.getNextNode();
-    return removedHead.data;
-  }
-}
-
-module.exports = LinkedList;
-```
-
 1. Define a method named `.printList()`. Inside it, create:
 
 - A let variable named `currentNode`, and set it equal to the list’s head
@@ -621,7 +699,7 @@ module.exports = LinkedList;
 
 3. Finally, outside of the `while` loop, but before your `console.log()`, set `output` equal to itself concatenated with `'<tail>'`.
 
-```js{39-48}
+```js{103-113}
 // linkedlist.js
 const Node = require("./Node");
 
@@ -638,7 +716,6 @@ class LinkedList {
       this.head.setNextNode(currentHead);
     }
   }
-
   addToTail(data) {
     let tail = this.head;
     if (!tail) {
@@ -650,7 +727,25 @@ class LinkedList {
       tail.setNextNode(new Node(data));
     }
   }
-
+  addAt(pos, data) {
+    if (pos < 1)
+        return this.head;
+    if (pos === 1) {
+        let newNode = new Node(data);
+        newNode.setNextNode(this.head);
+        return newNode;
+    }
+    let curr = this.head;
+    for (let i = 1; i < pos - 1 && curr != null; i++) {
+        curr = curr.getNextNode();
+    }
+    if (curr == null)
+        return this.head;
+    let newNode = new Node(data);
+    newNode.setNextNode(curr.getNextNode);
+    curr.setNextNode(newNode);
+    return this.head;
+  }
   removeHead() {
     const removedHead = this.head;
     if (!removedHead) {
@@ -659,7 +754,54 @@ class LinkedList {
     this.head = removedHead.getNextNode();
     return removedHead.data;
   }
-
+  removeTail() {
+    if (!this.head) {
+        return null;
+    }
+    if (!this.head.next) {
+        return null;
+    }
+    let secondLast = this.head;
+    while (secondLast.next.next) {
+        secondLast = secondLast.next;
+    }
+    secondLast.next = null;
+    return this.head;
+  }
+  removeAt(pos)
+  {
+    let temp = this.head;
+    let prev = null;
+    if (temp === null)
+        return this.head;
+    if (pos === 1) {
+        this.head = temp.next;
+        return this.head;
+    }
+    for (let i = 1; temp !== null && i < pos; i++) {
+        prev = temp;
+        temp = temp.next;
+    }
+    if (temp !== null) {
+        prev.next = temp.next;
+    }
+    else {
+        console.log("Data not present");
+    }
+    return this.head;
+  }
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+    let next;
+    while (curr !== null) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+  }
   printList() {
     let currentNode = this.head;
     let output = "<head> ";
@@ -675,7 +817,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-### Using the Linked List
+## Using the Linked List
 
 You finished your LinkedList class! Now we’re going to create an instance of that class and create a linked list of the seasons. We will add to it, remove from it, and finally print it out to check what we’ve done.
 
@@ -733,7 +875,7 @@ seasons.removeHead();
 seasons.printList(); //<head> summer fall winter <tail>
 ```
 
-## review
+## Review
 
 Congratulations, you have created and implemented a linked list class in JavaScript!
 
@@ -743,12 +885,4 @@ We did this by:
 - Implementing a LinkedList class to handle external operations on the list, like adding and removing nodes
 - Creating an instance of our list, and using our .printList() method to track the changes we made
 
-Feel free to play around a bit with your code. Here are some ideas:
-
-- Create a few nodes and add them to both ends of a new linked list
-- Print your linked list out using your .printList() method
-- Use console.log() on your list to see how it’s different from your .printList() method
-- Remove your linked list’s head node
-- Print your list again — was your original head node removed?
-
-- So far you’ve built a method to remove the head of the list. How do you think you would remove a node that has a specific data? Try building a method to do that!
+👉 [Top 50 Linked List Interview Questions](https://www.geeksforgeeks.org/top-50-linked-list-interview-question/)

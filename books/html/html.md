@@ -228,6 +228,4 @@ When using multiple tags, the tags must be closed in the order in which they wer
 <strong><em>This is really important!</em></strong>
 ```
 
-[Learn](https://html.com/#other-tutorials)
-
 [tag cheetsheet](https://html.com/wp-content/uploads/html-cheat-sheet.pdf)

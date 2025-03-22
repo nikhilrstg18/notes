@@ -10,9 +10,11 @@ stack: "HTML"
 
 The attribute features information for your computer regarding the source, height, width and alt text of the image.
 
-The <img> tag normally is written as follows:
+The `<img>` tag normally is written as follows:
 
-<img src="yourimage.jpg" alt="Describe the image" height="X" width="X">
+```html
+<img src="yourimage.jpg" alt="Describe the image" height="X" width="X" />
+```
 
 ## Support image formats
 
@@ -46,19 +48,61 @@ This element's attributes include the [global attributes](https://developer.mozi
 
 - The image [URL](https://developer.mozilla.org/en-US/docs/Glossary/URL). Mandatory for the `<img>` element.
 - On browsers supporting `srcset`, `src` is treated like a candidate image with a pixel density descriptor `1x`, unless an image with this pixel density descriptor is already defined in `srcset`, or unless `srcset` contains `w` descriptors.
+```html{1}
+<img src="https://picsum.photos/200" 
+     alt="Describe the image" />
+```
+  <div>Webpage view</div>
+  <div style="border: 2px solid grey; padding:8px">
+  <img src="https://picsum.photos/200" 
+     alt="Describe the image" />
+  </div>
 
 ### `alt`
 
 - Defines text that can replace the image in the page.
 - Setting this attribute to an empty string (`alt=""`) indicates that this image is not a key part of the content (it's decoration or a tracking pixel)
+```html{2}
+<img src="https://picsum.photo" 
+     alt="Describe the image" />
+```
+  <div>Webpage view</div>
+  <div style="border: 2px solid grey; padding:8px">
+  <img src="https://picsum.photo" 
+     alt="Describe the image" />
+  </div>
 
 ### `width`
 
 The intrinsic width of the image in pixels. Must be an integer without a unit.
 
+```html{3}
+<img src="https://picsum.photos/200" 
+     alt="Describe the image" 
+     width="50" />
+```
+  <div>Webpage view</div>
+  <div style="border: 2px solid grey; padding:8px">
+  <img src="https://picsum.photos/200" 
+     alt="Describe the image"  
+     width="50" />
+  </div>
+
 ### `height`
 
 The intrinsic height of the image, in pixels. Must be an integer without a unit.
+
+```html{3}
+<img src="https://picsum.photos/200" 
+     alt="Describe the image" 
+     height="80" />
+```
+  <div>Webpage view</div>
+  <div style="border: 2px solid grey; padding:8px">
+  <img src="https://picsum.photos/200" 
+     alt="Describe the image"  
+     height="80" />
+  </div>
 
 ### `loading`
 
@@ -69,5 +113,17 @@ Loads the image immediately, regardless of whether or not the image is currently
 #### `lazy`
 
 Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.
+
+```html{3}
+<img src="https://picsum.photos/200" 
+     alt="Describe the image" 
+     loading="lazy"/>
+```
+  <div>Webpage view</div>
+  <div style="border: 2px solid grey; padding:8px">
+  <img src="https://picsum.photos/200" 
+     alt="Describe the image"
+     loading="lazy" />
+  </div>
 
 ✏️: Images with `loading` set to `lazy` will never be loaded if they do not intersect a visible part of an element, even if loading them would change that as unloaded images have a `width` and `height` of 0. Putting `width` and `height` on lazy-loaded images fixes this issue and is a best practice, recommended by the specification. Doing so also helps prevent layout shifts.

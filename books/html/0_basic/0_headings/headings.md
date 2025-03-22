@@ -36,6 +36,22 @@ porttitor est, sit amet tincidunt risus vehicula porttitor. Morbi condimentum
 dapibus fringilla.
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<h2>Section Title</h2>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at egestas leo, at
+consequat lorem. Etiam at ligula et nisl maximus commodo.
+<h3>Subsection Title</h3>
+Aliquam elit arcu, iaculis vitae hendrerit sed, rutrum quis magna. Suspendisse
+iaculis sit amet enim quis interdum. Quisque fringilla et mauris at
+sollicitudin. Aenean dictum volutpat elit id varius. Fusce nec pellentesque
+arcu, ac dictum ex.
+<h3>Subsection Title</h3>
+Sed sagittis ipsum eu purus condimentum accumsan. Pellentesque volutpat
+porttitor est, sit amet tincidunt risus vehicula porttitor. Morbi condimentum
+dapibus fringilla.
+</div>
+
 ### Content Headings
 
 The six heading tags are an important part of HTML content writing. Besides the somewhat obvious need they fill (people sometimes want to put headlines on top of things), the headline tags also have SEO value, help you to be a more organized writer, and make pages more user-friendly.
@@ -80,6 +96,20 @@ Here’s a dirty little secret about online content: readers skim. Almost no one
 </main>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<main>
+  <article>
+    <h1>All About Headlines</h1>
+    . . .
+    <h2>Headlines and SEO</h2>
+    . . .
+    <h2>Headlines and Structure</h2>
+    . . .
+  </article>
+</main>
+</div>
+
 - **On an index page**, it usually makes sense to put either the site title in an `<h1>` tag, or to put the index name there: the category name, the author name, or whatever it is that defines that page. Then the titles of all the individual pieces that are listed there should have an `<h2>` element for their titles.
 
 ```html
@@ -100,6 +130,25 @@ Here’s a dirty little secret about online content: readers skim. Almost no one
 </main>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<main>
+  <h1>Posts about HTML</h1>
+  <article>
+    <h2>About Headlines</h2>
+    . . .
+  </article>
+  <article>
+    <h2>Links</h2>
+    . . .
+  </article>
+  <article>
+    <h2>Frames</h2>
+    . . .
+  </article>
+</main>
+</div>
+
 - In the past it has been common to use an `<h2>` tag for the site title when it appears on single-content pages.
 
 ```html
@@ -112,6 +161,18 @@ Here’s a dirty little secret about online content: readers skim. Almost no one
   . . .
 </main>
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<header>
+  <h2>HTML Code Tutorials</h2>
+  <nav><!-- menu --></nav>
+</header>
+<main>
+  <h1>Actual Title of This Page</h1>
+  . . .
+</main>
+</div>
 
 #### `<h3>` and `<h4>` elements
 

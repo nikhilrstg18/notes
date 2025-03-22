@@ -38,6 +38,8 @@ export default function Nav({ section }) {
       </div>
       <div className={styles.nav}>
         <div>
+        </div>
+        <div>
           <Link to="/books">Books</Link>
         </div>
         <div className={styles.social}>

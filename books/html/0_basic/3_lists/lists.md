@@ -24,6 +24,15 @@ stack: "HTML"
 </ol>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<ol>
+  <li>An item</li>
+  <li>Another item</li>
+  <li>Another goes here</li>
+</ol>
+</div>
+
 ## Unordered List
 
 The second type of list that you may wish to include is an <ul> unordered list. This is better known as a bullet point list and contains no numbers. for eg.
@@ -36,6 +45,15 @@ The second type of list that you may wish to include is an <ul> unordered list. 
 </ul>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<ul>
+  <li>This is</li>
+  <li>An Unordered</li>
+  <li>List</li>
+</ul>
+</div>
+
 ## Definition List
 
 Finally, you may wish to include a definition list `<dl>` on your page. An example of a `<dl>` list is as follows:
@@ -46,3 +64,11 @@ Finally, you may wish to include a definition list `<dl>` on your page. An examp
   <dd>The definition goes here</dd>
 </dl>
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<dl>
+  <dt>Item</dt>
+  <dd>The definition goes here</dd>
+</dl>
+</div>

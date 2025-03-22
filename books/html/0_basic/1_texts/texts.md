@@ -35,12 +35,25 @@ When we write text in HTML, we also have a number of other elements we can use t
 </p>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to <b>my</b> brand new website. This site will be my new home on the
+  web.
+</p>
+</div>
+
 ## `<strong>` usage
 
 ```html
-<p>Welcome to my brand new website. This site will be my <strong>new<strong> home on the web.</p>
+<p>Welcome to my brand new website. This site will be my <strong>new</strong> home on the web.</p>
 
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>Welcome to my brand new website. This site will be my <strong>new</strong> home on the web.</p>
+</div>
 
 ## `<i>` usage
 
@@ -51,6 +64,14 @@ When we write text in HTML, we also have a number of other elements we can use t
 </p>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to <i>my</i> brand new website. This site will be my new home on the
+  web.
+</p>
+</div>
+
 ## `<em>` usage
 
 ```html
@@ -60,12 +81,25 @@ When we write text in HTML, we also have a number of other elements we can use t
 </p>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to <em>my</em> brand new website. This site will be my new home on the
+  web.
+</p>
+</div>
+
 ## `<mark>` usage
 
 ```html
 <p>Welcome to <mark>my</mark> brand new website. This site will be my <mark>new<mark> home on the web.</p>
 
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>Welcome to <mark>my</mark> brand new website. This site will be my <mark>new<mark> home on the web.</p>
+</div>
 
 ## `<small>` usage
 
@@ -76,6 +110,14 @@ When we write text in HTML, we also have a number of other elements we can use t
 </p>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to <small>my</small> brand new website. This site will be my new home
+  on the web.
+</p>
+</div>
+
 ## `<strike>` usage
 
 ```html
@@ -84,6 +126,14 @@ When we write text in HTML, we also have a number of other elements we can use t
   <strike>new</strike> home on the web.
 </p>
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to my brand new website. This site will be my
+  <strike>new</strike> home on the web.
+</p>
+</div>
 
 ## `<u>` usage
 
@@ -94,23 +144,45 @@ When we write text in HTML, we also have a number of other elements we can use t
 </p>
 ```
 
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>
+  Welcome to <u>my</u> brand new website. This site will be my new home on the
+  web.
+</p>
+</div>
+
 ## `<ins>` usage
 
 ```html
-<p>Welcome to my brand new website. This site will be my <ins>new<ins> home on the web.</p>
+<p>Welcome to my brand new website. This site will be my <ins>new</ins> home on the web.</p>
 
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>Welcome to my brand new website. This site will be my <ins>new</ins> home on the web.</p>
+</div>
 
 ## `<sub>` usage
 
 ```html
-<p>Welcome to my brand new website. This site will be my <sub>new<sub> home on the web.</p>
+<p>Welcome to my brand new website. This site will be my <sub>new</sub> home on the web.</p>
 
 ```
+
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>Welcome to my brand new website. This site will be my <sub>new</sub> home on the web.</p>
+</div>
 
 ## `<sup>` usage
 
 ```html
-<p>Welcome to my brand new website. This site will be my <sup>new<sup> home on the web.</p>
+<p>Welcome to my brand new website. This site will be my <sup>new</sup> home on the web.</p>
 
 ```
+<div>Webpage view</div>
+<div style="border: 2px solid grey; padding:8px">
+<p>Welcome to my brand new website. This site will be my <sup>new</sup> home on the web.</p>
+</div>

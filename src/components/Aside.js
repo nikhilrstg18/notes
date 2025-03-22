@@ -18,7 +18,7 @@ export default function Aside({ sideMenu }) {
           case 'ai':
           case 'llm':
           case 'nlp':
-            return word.toUpperCase()
+            return word.toUpperCase();
           default:
             return word.charAt(0).toUpperCase() + word.slice(1)  
         }        

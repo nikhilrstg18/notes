@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import * as styles from "../styles/aside.module.css";
-import { FileBreakFill } from "react-bootstrap-icons";
 
 export default function Aside({ sideMenu }) {
   function titleCase(str) {

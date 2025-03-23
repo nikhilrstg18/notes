@@ -26,8 +26,30 @@ h4,
 h5,
 h6 {
   margin: 3rem 0 1rem 0;
-  color: var(--secondary);
-  background: linear-gradient(45deg, var(--header) 1%, transparent 80%);
+  background-image: linear-gradient(to left, #001229, #2fd9c9);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.book h2{
+ text-align: center;
+}
+h2::before,
+h2::after {
+    display: inline-block;
+    content: "";
+    border-top: .15rem solid #ccc;
+    width: 4rem;
+    margin: 0 1rem;
+    transform: translateY(-.5rem);
+}
+h3::after {
+    display: inline-block;
+    content: "";
+    border-top: 2px solid #ccc;
+    width: 4rem;
+    margin: 0 1rem;
+    transform: translateY(-.5rem);
 }
 .book p:has(img) {
   display: block;

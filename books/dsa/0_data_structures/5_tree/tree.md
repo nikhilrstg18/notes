@@ -1,6 +1,6 @@
 ---
-title: "Node - Data Structures"
-slug: "dsa/0_ds/0_nodes"
+title: "Tree - Data Structures"
+slug: "dsa/0_data_structures/5_tree"
 stack: "DSA"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Linked List - 2 pointers"
-slug: "dsa/0_ds/1_linked_list/1_linked_list_two_pointer"
+slug: "dsa/0_data_structures/1_linked_list/1_linked_list_two_pointer"
 stack: "DSA"
 ---
 

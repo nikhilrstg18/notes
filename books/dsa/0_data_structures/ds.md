@@ -1,6 +1,6 @@
 ---
 title: "Data Structures"
-slug: "dsa/0_ds"
+slug: "dsa/0_data_structures"
 stack: "DSA"
 ---
 

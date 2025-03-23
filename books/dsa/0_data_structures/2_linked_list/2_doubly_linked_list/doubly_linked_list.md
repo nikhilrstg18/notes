@@ -1,6 +1,6 @@
 ---
 title: "Doubly- Linked List"
-slug: "dsa/0_ds/1_linked_list/2_doubly_linked_list"
+slug: "dsa/0_data_structures/1_linked_list/2_doubly_linked_list"
 stack: "DSA"
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "Linked List - Data Structures"
-slug: "dsa/0_ds/1_linked_list"
+slug: "dsa/0_data_structures/2_linked_list"
 stack: "DSA"
 ---
 
-## Linked List
+## Basics
 
-> Linked List aka **Singly Linked List**
+> aka **Singly Linked List**
 
 ![Linked List](./../../../../src/images/dsa/n-3.png)
 
@@ -37,7 +37,7 @@ Linked Lists:
 - Require some maintenance in order to add or remove nodes
 - The methods we used are an example and depend on the exact use case and/or programming language being used
 
-## Constructor
+### Constructor
 
 Let’s implement a linked list in JavaScript. As you might recall, a linked list is a sequential chain of nodes. Remember that a node contains two elements:
 
@@ -101,7 +101,9 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Add To Head
+## Operations
+
+### Add To Head
 
 ![Add to Head](./../../../../src/images/dsa/n-6.png)
 
@@ -131,7 +133,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Add To Tail
+### Add To Tail
 
 Now that we can add to the head of the linked list, the next step is to be able to add to the tail. This will require a few more steps since we don’t have a `tail` property in our linked list data structure.
 
@@ -180,7 +182,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Add By Position
+### Add By Position
 
 To insert a node at a specific position, traverse the list to the desired position, link the new node to the next node, and update the links accordingly.
 
@@ -256,7 +258,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Remove Head
+### Remove Head
 
 Now we’re going to learn how to remove from the head of the list. To do this, we are first going to check to see if the list has a head. If it doesn’t, there is nothing to return. If there is a head, we will remove it by setting the list’s head equal to the original head’s next node, and then return that original head.
 
@@ -328,7 +330,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Remove Tail
+### Remove Tail
 
 Now we’re going to learn how to remove from the tail of the list. To do this, we are first going to check to see if the list has a tail. If it doesn’t, there is nothing to return. If there is a tail, we will remove it by setting the list’s tail equal to the original tail’s next node, and then return that original tail.
 
@@ -414,7 +416,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Remove By Position
+### Remove By Position
 
 To delete a node at a specific position, traverse the list to the desired position, update the links to bypass the node to be deleted.
 
@@ -534,7 +536,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Reverse
+### Reverse
 
 to reverse the linked list by changing the links between nodes
 
@@ -674,7 +676,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Printing
+### Printing
 
 Nice! Now we have a bunch of helpful LinkedList methods under our belt. Our next step is to create a .printList() method so we can see our list as it changes.
 
@@ -817,7 +819,7 @@ class LinkedList {
 module.exports = LinkedList;
 ```
 
-## Using the Linked List
+### Using the Linked List
 
 You finished your LinkedList class! Now we’re going to create an instance of that class and create a linked list of the seasons. We will add to it, remove from it, and finally print it out to check what we’ve done.
 

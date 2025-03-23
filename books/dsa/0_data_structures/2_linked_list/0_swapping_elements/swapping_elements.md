@@ -1,6 +1,6 @@
 ---
 title: "Swapping Elements - Linked List"
-slug: "dsa/0_ds/1_linked_list/0_swapping_elements"
+slug: "dsa/0_data_structures/1_linked_list/0_swapping_elements"
 stack: "DSA"
 ---
 

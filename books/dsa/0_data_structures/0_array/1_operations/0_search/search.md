@@ -247,6 +247,10 @@ if (result >= 0) {
   }
 ```
 
+**Linear Vs Binary Search**
+
+![Linear vs Binary Search]()
+
 #### Analysis
 
 1. n: Number of elements in the dataset.
@@ -340,7 +344,7 @@ if (index >= 0) {
 - Space Complexity
   | Worst Case |
   | --------- |
-  | O(1) |
+  | **O(1)** |
 
 - Time Complexity
   | Best Case | Average Case | Worst Case |
